@@ -8,6 +8,11 @@ function route(app) {
         res.sendFile('/home/kimisha-ladani/Documents/project-combinepractice/views/Js-task/Kukucube.html');
     });
 
+    app.get('/tictactoe', (req, res) => {
+        res.sendFile('/home/kimisha-ladani/Documents/project-combinepractice/views/Js-task/tictactoe.html');
+    });
+
+
 
 }
 
