@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="febone.js"> </script> -->
+    <title>Table adding row column</title>
+    <style>
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        td {
+            border: 2px solid black;
+            height: 50px;
+            width: 50px;
+        }
+
+        tr:nth-of-type(even) td:nth-of-type(even),
+        tr:nth-of-type(odd) td:nth-of-type(odd) {
+            background-color: lightpink;
+        }
+
+        .allbutton {
+            height: 40px;
+            max-width: 100%;
+            padding-top: 5px;
+
+        }
+
+        .column {
+            float: left;
+            padding-left: 10px;
+
+        }
+
+        .row {
+            float: right;
+            padding-right: 10px;
+        }
+
+        .button {
+            background-color: grey;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1:hover {
+            background-color: #e7e7e7;
+            color: black;
+            border: 2px solid #e7e7e7;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Kimisha Ladani EID=24DEV098</h2>
+    <div class="allbutton">
+        <div class="column">
+            <!-- <input type="button" name="column-plus" value="+col" onclick="columnplus()"> -->
+            <!-- <input type="button" name="column-minus" value="-col" onclick="columnminus()"> -->
+            <input type="button" name="column-plus" value="+col" class="button button1" onclick="colplus()">
+            <input type="button" name="column-minus" value="-col" class="button button1" onclick="colminus()">
+        </div>
+        <div class="row">
+            <input type="button" name="row-plus" value="+row" class="button button1" onclick="rowplus()">
+            <input type="button" name="row-minus" value="-row" class="button button1" onclick="rowminus()">
+        </div>
+    </div>
+    </div>
+    <table id="addremove">
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+    <script>
+        function colplus() {
+                var table = document.getElementById("addremove");
+                var addcols = table.rows;
+                var cols = table.rows[0].cells.length;
+                for (var i = 0; i < addcols.length; i++) {
+                    var cell = addcols[i].insertCell(cols - 1)
+                }
+            }
+
+            function colminus() {
+                var table = document.getElementById("addremove")
+                var colcount = table.rows.length;
+                let index = 2;
+                for (var i = 0; i < colcount; i++) {
+                    table.rows[i].deleteCell(index);
+                }
+            }
+
+            function rowplus() {
+                var table = document.getElementById("addremove");
+                var addrow = table.rows;
+                var cols = table.rows[0].cells.length;
+                var row = table.insertRow(addrow.length);
+                for (var i = 0; i < cols; i++) {
+                    var cell = row.insertCell(i);
+                }
+            }
+
+            function rowminus() {
+                document.getElementById("addremove").deleteRow(2);
+            }
+
+    </script>
+
+</body>
+
+</html>
