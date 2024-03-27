@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Data list</title>
+    <style>
+        table {
+            /* height: 100%; */
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        th {
+            font-size: 15px;
+            background-color: lightblue;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+    
+
+    
+    </style>
+
+</head>
+
+</head>
+
+<body>
+
+    <h2> registration data list </h2>
+ 
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Contact-no</th>
+            <th>Email</th>
+            <th>Salt</th>
+            <th>Acess-Key</th>
+            <th>Password</th>
+            <th>created_time</th>
+        </tr>
+
+        <% data.forEach((item)=>{%>
+
+            <tr>
+
+                <td>
+                    <%=item.id %>
+                </td>
+                <td>
+                    <%=item.first_name %>
+                </td>
+
+                <td>
+                    <%= item.last_name %>
+                </td>
+                <td>
+                    <%= item.contact_no%>
+                </td>
+                <td>
+                    <%= item.email %>
+                </td>
+                <td>
+                    <%= item.salt %>
+                </td>
+                <td>
+                    <%= item.access_key%>
+                </td>
+                <td>
+                    <%= item.pass_word %>
+                </td>
+                <td>
+                    <%= item.created_time %>
+                </td>
+                
+
+            </tr>
+
+            <%});%>
+
+    </table>
+
+
+</body>
+
+</html>

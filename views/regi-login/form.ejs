@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration from</title>
+
+    <style>
+        body {
+            text-align: center;
+
+        }
+
+        .regi {
+            border: 2px solid black;
+            width: 450px;
+            margin: 25px auto;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: rgb(138, 167, 167);
+        }
+
+        .one {
+            margin-bottom: 15px;
+        }
+
+        input {
+            font-size: 16px;
+            padding: 4px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        label {
+            font-weight: 800;
+        }
+
+        .btn input {
+            background-color: rgb(251, 139, 99);
+            font-size: 15px;
+            width: 150px;
+            padding: 10px 10px;
+            border: 1px solid black;
+            pointer-events: all;
+            /* border-radius: 5px; rgb(220, 211, 175);*/
+        }
+
+        .btn input:hover {
+            background-color: coral;
+        }
+
+        p {
+            color: red;
+            font-size: 13px;
+        }
+
+        h3 {
+            border-bottom: 1px solid;
+        }
+
+        .log {
+            margin-top: 20px;
+        }
+
+        .log a {
+            color: rgb(9, 61, 107);
+            margin-left: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>24DEV098 || Kimisha</h2>
+
+    <div class="regi">
+        <h3>Registration-form</h3>
+        <form action="/submit" method="post" id="regform">
+
+            <div class="one">
+                <label for="first_name"> Firstname :</label>
+                <input type="text" name="first_name" id="first_name" placeholder="enter a Firstname" />
+                <p id="errfname"></p>
+            </div>
+            <div class="one">
+                <label for="last_name"> Lastname :</label>
+                <input type="text" name="last_name" id="last_name" placeholder="enter a Lastname" />
+                <p id="errlname"></p>
+            </div>
+            <div class="one">
+                <label for="contact_no">contact no :</label>
+                <input type="text" name="contact_no" id="contact_no" placeholder="enter a number" />
+                <p id="errcontact"></p>
+            </div>
+            <div class="one">
+                <label for="email"> Email-id :</label>
+                <input type="text" id="email" name="email" placeholder="abc@xyz.com" />
+                <p id="errmail"></p>
+            </div>
+
+            <div class="btn">
+                <input type="button" value="Registration" name="submit" onclick="submitform()">
+                <input type="reset" value="Clear">
+            </div>
+            <div class="log">
+                <span>Already have an account?</span>
+                <a class="btn" href="/login">Login</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+        // for submitform....
+      async function submitform() {
+            if (validatedata() != true) {
+                return false;
+            }
+            async function getdata() {
+                let formdata = document.getElementById('regform');
+                let data = new FormData(formdata);
+                const jobdata = new URLSearchParams(data);
+
+                console.log('data submitted');
+
+                let result = await fetch('http://localhost:8001/submit', {
+                    method: 'post',
+                    headers: {
+                        'Content-type': 'application/x-www-form-urlencoded'
+                    },
+                    body: jobdata
+                })
+
+                result = await result.json();
+                console.log("Registration complete");
+
+                return result;
+            }
+
+            let result = await getdata();
+            console.log("result is ", result);
+            window.location.href = `http://localhost:8001/thankyou`;
+
+            return true;
+        }
+
+
+         function validatedata() {
+
+                var first_name = document.getElementById('first_name').value;
+                document.getElementById('errfname').innerHTML = '';
+                if (first_name === '') {
+                    errfname.innerHTML = 'name is required*';
+                    return false;
+                }
+                else if (!/^[a-zA-Z]+$/.test(first_name)) {
+                    errfname.innerHTML = 'only contain letters';
+                    return false;
+                }
+
+                var last_name = document.getElementById('last_name').value;
+                document.getElementById('errlname').innerHTML = '';
+                if (last_name === '') {
+                    errlname.innerHTML = 'name is required*';
+                    return false;
+                }
+                else if (!/^[a-zA-Z]+$/.test(last_name)) {
+                    errlname.innerHTML = 'only contain letters';
+                    return false;
+                }
+
+
+                var contact_no = document.getElementById('contact_no').value;
+                document.getElementById('errcontact').innerHTML = '';
+                if (contact_no === '') {
+                    errcontact.innerHTML = 'contactno is required*';
+                    return false;
+                }
+                else if (!/^\d{10}$/.test(contact_no)) {
+                    errcontact.innerHTML = 'enter valid number';
+                    return false;
+                }
+
+                var email = document.getElementById('email').value;
+                document.getElementById('errmail').innerHTML = '';
+                if (email === '') {
+                    errmail.innerHTML = 'email is required*';
+                    return false;
+                }
+                else if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+                    errmail.innerHTML = 'enter valid email';
+                    return false;
+                }
+
+                return true;
+            }
+
+    </script>
+
+</body>
+
+</html>

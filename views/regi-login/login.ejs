@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .login {
+            border: 2px solid black;
+            width: 450px;
+            margin: 150px auto;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: rgb(138, 167, 167);
+        }
+
+        input {
+            font-size: 16px;
+            padding: 4px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        label {
+            font-weight: 800;
+        }
+
+        .btn input {
+            background-color: rgb(251, 139, 99);
+            font-size: 15px;
+            width: 150px;
+            padding: 10px 10px;
+            border: 1px solid black;
+            /* border-radius: 5px; */
+        }
+
+        .btn input:hover {
+            background-color: coral;
+        }
+
+        .one {
+            margin-bottom: 25px;
+        }
+
+        p {
+            color: red;
+            font-size: 13px;
+        }
+
+        h4 {
+            border-bottom: 1px solid black;
+        }
+        .register{
+            margin-top: 20px;
+        }
+       .register a{
+            color: rgb(9, 61, 107);
+            margin-left: 10px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="login">
+        <div class="box">
+            <h4>Login form</h4>
+            <form action="/submit" method="post" id="loginform">
+                <div class="one">
+                    <p id="loginner"></p>
+                    <label for="email"> Email-id :</label>
+                    <input type="text" id="email" name="email" placeholder="abc@xyz.com" />
+                    <span id="errmail"></span>
+                </div>
+                <div class="one">
+                    <label for="password"> Password :</label>
+                    <input type="text" name="password" id="password" placeholder="enter password" />
+                </div>
+                <div class="one">
+                    <a href="/email">forgot password?</a>
+                </div>
+                <div class="btn">
+                    <input type="button" value="login" name="login" onclick="loginform()">
+                </div>
+                <div class="register">
+                    <span>don't have any account?</span>
+                    <a class="btn" href="/">Register</a>
+                </div>
+            </form>
+        </div>
+        <div id="newone">
+        </div>
+    </div>
+
+    <script>
+
+        async function loginform() {
+            let formdata = document.getElementById('loginform');
+            let data = new FormData(formdata);
+            const params = new URLSearchParams(data);
+
+            const jobdata = await new Response(params).text();
+
+            console.log('welcome');
+
+            let data2 = await fetch('http://localhost:8001/login', {
+                method: 'post',
+                headers: {
+                    'Content-type': 'application/x-www-form-urlencoded'
+                },
+                body: jobdata
+            });
+
+            logdata = await data2.json();
+            if (logdata.msg === 'welcome') {
+                window.location.assign("http://localhost:8001/home");
+            } else {
+                document.getElementById('loginner').innerHTML = logdata.msg;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

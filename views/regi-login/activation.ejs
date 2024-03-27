@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration-done</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .pass{
+            margin: 100px auto;
+            padding: 25px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="pass">
+    <h3>thank you for your Registration!!</h3>
+        <p id="link"></p>
+
+
+    </div>
+        <script>
+            let codelink = "http://localhost:8001/password/id=<%=result.id%> and access_key=<%=result.access_key%>";
+            document.getElementById('link').innerHTML = `<a href = "${codelink}"> ${codelink} </a>`;
+        </script>
+
+</body>
+</html>
