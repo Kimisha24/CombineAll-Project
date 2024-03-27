@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table colour with adding row column</title>
+  
+    <style>
+        body {
+            background-color: rgb(229, 240, 240);
+
+        }
+
+        table {
+            border: 2px solid black;
+            border-collapse: collapse;
+            margin: auto;
+            height: 500px;
+            width: 500px;
+        }
+
+        td {
+            border: 2px solid black;
+            /* height: 50px;
+     width: 50px; */
+            text-align: center;
+            /* cursor: pointer; */
+            /* background-color: rgb(62, 60, 61); */
+        }
+
+        #Time {
+            text-align: end;
+        }
+    </style>
+</head>
+
+<body onload="mygame()">
+    <p>Kimisha Ladani EID=24DEV098</p>
+    <h3>Score : <span id="score"></span></h3>
+    <h3 id="time"> <span id="count"></span></h3>
+    <table>
+
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </table>
+
+    <script>
+
+        var count = 10;
+        timer = setInterval(function () {
+            if (count <= 0) {
+                clearInterval(timer);
+                document.getElementById("time").innerHTML = "finished";
+                document.getElementsByTagName("body")[0].innerHTML = `<h2 style=" margin:300px 0 0 500px"> your score is : ${value} </h2>`
+                const button = document.createElement("button");
+                alert("your game is over");
+                button.innerHTML = "Play Again";
+                button.style.fontSize = "20px";
+                button.style.margin = "15px 0 0 550px";
+                button.addEventListener("click", function () {
+                    window.location.reload();
+                })
+                document.body.appendChild(button);
+
+            }
+            else {
+                document.getElementById("count").innerHTML = count + " : Time ";
+            }
+            count--;
+        }, 1000)
+
+
+        function rndcolour() {
+            let red = Math.floor(Math.random() * (255 + 1));
+            let green = Math.floor(Math.random() * (255 + 1));
+            let blue = Math.floor(Math.random() * (255 + 1));
+
+            return { red, green, blue };
+        }
+
+        function mygame() {
+            let table = document.getElementsByTagName("table");
+            tr = table[0].getElementsByTagName("tr");
+            td = document.querySelectorAll("td");
+
+            var randomvalue = Math.floor(Math.random() * ((td.length - 1 + 0) + 0));
+            // console.log(randomvalue + "Random Value");
+
+            const r = rndcolour().red;
+            // console.log(r);
+            const g = rndcolour().green;
+            // console.log(g);
+            const b = rndcolour().blue;
+            // console.log(b);
+
+            for (let i = 0; i < td.length; i++) {
+                if (i == randomvalue) {
+                    td[i].style.backgroundColor = " rgba(" + r + ", " + g + ", " + b + ")";
+                    td[i].style.opacity = "0.5";
+                } else {
+                    td[i].style.backgroundColor = " rgba(" + r + ", " + g + ", " + b + ")";
+                    td[i].style.opacity = "1";
+                    td[i].removeEventListener("click", addrowcolplus);
+                }
+            }
+            td[randomvalue].addEventListener("click", addrowcolplus);
+        }
+
+
+
+        var value = 0;
+        function addrowcolplus() {
+            rowplus();
+            columnplus();
+            mygame();
+            value++;
+            document.getElementById("score").innerHTML = value;
+        }
+
+        function columnplus() {
+            let table = document.getElementsByTagName("table");
+            tr = table[0].getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                tr[i].appendChild(document.createElement("td"));
+            }
+        }
+
+        function rowplus() {
+            let table = document.getElementsByTagName("table");
+            let tr = table[0].getElementsByTagName("tr");
+            td = tr[0].getElementsByTagName("td");
+            table[0].appendChild(document.createElement("tr"));
+            for (i = 0; i < td.length; i++) {
+                table[0].lastChild.appendChild(document.createElement("td"));
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
