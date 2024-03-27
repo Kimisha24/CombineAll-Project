@@ -1,9 +1,17 @@
 var con = require('../combinedb');
+var citystateroute = require('../routers/citystateroute');
+
 var md5 = require('md5');
 const jwt = require('jsonwebtoken');
 
 function route(app) {
     
+    citystateroute(app);
+
+
+
+    
+
     var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz12345678910';
     function random(n) {
         let salt = '';

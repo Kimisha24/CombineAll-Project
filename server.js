@@ -1,6 +1,8 @@
 var express = require('express');
 const cookieParser = require('cookie-parser');
-var regiroute = require('./routers/regiroute');
+
+var route = require('./routers/regiroute');
+
 
 var app = express();
 app.use(cookieParser());
@@ -9,7 +11,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-regiroute(app);
+route(app);
 
 
 app.listen(8001);

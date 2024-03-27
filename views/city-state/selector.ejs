@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax-select</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .state{
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+
+<body onload="loading()">
+    
+    <h2> selector for state and city </h2>
+    <div class="state">
+        <label for="state">state:</label>
+        <select name="state" id="state" onchange="cityrender(this.value)">
+            <option value="select">select</option>
+        </select>
+    </div>
+
+    <div class="city">
+        <label for="city">city:</label>
+        <select name="city" id="city">
+            <option value="select">select</option>
+        </select>
+    </div>
+
+    <script>
+
+        function loading() {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var state = document.getElementById('state');
+                    JSON.parse(this.response).forEach(e => {
+                        var option = document.createElement('option');
+                        option.setAttribute('value', `${e.state_id}`);
+                        option.innerHTML = `${e.state_name}`;
+                        state.appendChild(option);
+
+
+                        // console.log(this.response);
+                    });
+                }
+            }
+            xhr.open('get', '/state', true);
+            xhr.send();
+
+        }
+
+        function cityrender(value) {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    var city = document.getElementById('city');
+                    var child = city.lastElementChild;
+                    while (child) {
+                        city.removeChild(child);
+                        child = city.lastElementChild;
+                    }
+
+                    JSON.parse(this.response).forEach(e => {
+                        var option = document.createElement('option');
+                        option.setAttribute('value', `${e.city_name}`);
+                        option.innerHTML = `${e.city_name}`;
+                        city.appendChild(option);
+                        // console.log(option);
+                        // console.log(this.response);
+                    });
+                }
+            }
+            xhr.open('get', `/city/${value}`, true);
+            xhr.send();
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
