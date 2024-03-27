@@ -1,5 +1,6 @@
 var con = require('../combinedb');
 var md5 = require('md5');
+const jwt = require('jsonwebtoken');
 
 function route(app) {
     
@@ -14,7 +15,13 @@ function route(app) {
 
     app.get('/', (req, res) => {
         try {
-            res.render('regi-login/form');
+
+            if (req.cookies.token) {
+                res.render('regi-login/home');
+            }
+            else {
+                res.render('regi-login/form');
+            }
         } catch (err) {
             console.log(err);
         }
@@ -116,6 +123,8 @@ function route(app) {
         } else {
             md5pas = md5(password + result.salt);
             if (result.pass_word === md5pas) {
+                var token = jwt.sign({ email }, `logintoken`, { expiresIn: '1h' });
+                res.cookie('token', token, { expires: new Date(Date.now() + 900000), httpOnly: true });
                 res.json({ msg: 'welcome' });
             }else{
             res.json({ msg: 'email or password are wrong' });
