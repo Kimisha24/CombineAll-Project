@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="jsevent1.js"></script> -->
+    <style>
+        table {
+            height: 100%;
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .one {
+            background-color: green;
+            color: white;
+        }
+
+        .droptarget {
+            width: 100px;
+            height: 35px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body onload="onloadfunc()">
+    <table><br>
+        <legend>mouse events</legend><br>
+        <tr>
+            <td class="one">
+                <div onmouseover="mOver(this)" onmouseout="mOut(this)">
+                    Mouse Over Me</div>
+            </td>
+            <td>
+                <h3 onmouseover="style.color='red'" onmouseout="style.color='black'">Mouse over this text</h3>
+            </td>
+            <td class="one">
+                <p onmousedown="mupdown(this,'red')" onmouseup="mupdown(this,'blue')">
+                    onmousedown/onmouseup events
+                </p>
+
+            </td>
+
+        </tr>
+    </table><br>
+    <table>
+        <legend>Input Events</legend><br>
+        <tr>
+            <td>on blur</td>
+            <td>on focus</td>
+            <td>on keydown</td>
+        </tr>
+        <tr>
+
+            <td><label> Firstname </label>
+                <input type="text" id="fname" onblur="onblurfunc()">
+            </td>
+            <td>
+                <label>Lastname </label>
+                <input type="text" id="fname" onfocus="onfocusfunc(this)">
+            </td>
+            <td>
+                <label> City </label>
+                <input type="text" name="city" id="city" size="15" onkeydown="onkeydownfunc()" />
+            </td>
+        </tr>
+    </table><br><br>
+    <table>
+        <tr>
+            <td>on submit</td>
+            <td>on change with dropdown</td>
+            <td>on keypress</td>
+        </tr>
+        <tr>
+            <td>
+                <form onsubmit="confirminput()" action="https://www.google.com/" target="_blank">
+                    Enter your name: <input id="fname" type="text" size="20">
+                    <input type="submit" value="submitquery">
+
+                </form>
+
+            </td>
+            <td>
+
+                choose which browser you prefer:
+                <select name="browsers" id="browsers" onchange="preferedbrowser()">
+                    <option value="chrome">chrome</option>
+                    <option value="firefox">firefox</option>
+                    <option value="internet explorer">internet explorer</option>
+                    <option value="microsoft edge">microsoft edge</option>
+                </select>
+
+
+            </td>
+            <td>
+                <label>state</label>
+                <input type="text" onkeypress="keypressfunc()">
+            </td>
+        </tr>
+    </table><br><br>
+    <table>
+        <tr>
+            <td>onkeyup</td>
+            <td>onkeydown and onkeyup </td>
+            <td>on reset</td>
+
+
+        </tr>
+        <tr>
+            <td>
+                <label>country</label>
+                <input type="text" id="country" onkeyup="onkeyupfunc()">
+            </td>
+            <td>
+                <form> <label>address</label>
+                    <input type="text" id="add1" onkeydown="colour('yellow') " name="myInput"
+                        onkeyup="colour('lightblue')">
+                </form>
+            </td>
+            <td>
+                <form onreset="msg()">
+                    <label>district</label>
+                    <input type="text" size="15">
+                    <input type="reset" value="reset">
+                </form>
+
+            </td>
+        </tr>
+    </table><br><br>
+
+    <table>
+        <tr>
+            <td>onclick</td>
+            <td>ondblclick</td>
+            <td>ondrag event</td>
+        </tr>
+        <tr>
+            <td>
+                <span id="demo"></span>
+                <input type="submit" value="clickme" onclick="Greet()">
+            </td>
+            <td>
+                <!-- <span id="demo1"></span> -->
+                <button ondblclick="dblclick()" id="demo1">Doubleclick me.</button>
+            </td>
+
+            <td>
+                <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">Drag me!
+                    </p>
+                </div>
+
+                <p id="demo2"></p>
+
+                <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+
+            </td>
+        </tr>
+    </table><br><br>
+
+
+    <script>
+    // -------MouseEvent----
+
+    function mOver(obj) {
+        obj.innerHTML = "Thank You"
+    }
+    function mOut(obj) {
+        obj.innerHTML = "Mouse Over Me"
+    }
+
+    // -----------mouse up and down
+
+    function mupdown(elmnt, clr) {
+        elmnt.style.color = clr;
+    }
+
+    //Input events
+
+    // ...............onblur
+
+    function onblurfunc() {
+        var x = document.getElementById("fname");
+        x.value = x.value.toUpperCase();
+        alert("your letter will be changed in capital");
+    }
+
+    // ................onfocus
+
+    function onfocusfunc(y) {
+        y.style.background = "grey";
+        alert("your background colour is changed");
+    }
+
+    //...................onkeydown - This event occurs when the user has pressed down the key. It will occur even if the key pressed does not produce a character value. 
+
+    function onkeydownfunc() {
+        alert("You pressed a key inside the input field");
+    }
+
+    //.................onsubmit
+
+    function confirminput() {
+        fname = document.forms[0].fname.value;
+        alert("Hello" + fname + "Now you will be redirected to google");
+    }
+
+
+
+    //........onchange with drop down
+
+    function preferedbrowser() {
+        let prefer;
+        prefer = document.getElementById("browsers").value;
+        alert("you prefer browsing internet with" + prefer);
+    }
+
+    // .....onkeypress Event: This event occurs when the user presses a key that produces a character value.
+
+    function keypressfunc() {
+        alert("you press a key that produces character value");
+    }
+
+    // ...keyup event = This event occurs when the user has released the key. It will occur even if the key released does not produce a character value.
+
+    function onkeyupfunc() {
+        const x = document.getElementById("country");
+        x.value = x.value.toUpperCase();
+    }
+
+    // onkeydown and onkeyup function 
+
+    function colour(color) {
+        document.forms[1].myInput.style.background = color;
+    }
+
+    // ..onreset
+
+    function msg() {
+        alert("This alert box was triggered by the onreset event handler");
+    }
+
+    // .....onclick
+    function Greet() {
+        document.getElementById("demo").innerHTML = "hello";
+        // alert('submited your responce');
+    }
+
+    // .....ondblclick
+    function dblclick() {
+        document.getElementById("demo1").innerHTML = "hello world";
+        // alert('submited your responce');
+    }
+
+    // ..onload 
+
+    function onloadfunc() {
+        alert("page is loaded");
+    }
+
+    // ..ondrag
+
+    function dragStart(event) {
+        event.dataTransfer.setData("Text", event.target.id);
+    }
+
+    function dragging(event) {
+        document.getElementById("demo2").innerHTML = "The p element is being dragged";
+    }
+
+    function allowDrop(event) {
+        event.preventDefault();
+    }
+
+    function drop(event) {
+        event.preventDefault();
+        const data = event.dataTransfer.getData("Text");
+        event.target.appendChild(document.getElementById(data));
+        document.getElementById("demo2").innerHTML = "The p element was dropped";
+    }
+
+    </script>
+
+
+</body>
+
+</html>

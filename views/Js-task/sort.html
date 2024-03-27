@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>sorting number</h2>
+    <div>
+        <label for="sort"> Input array: </label>
+        <input type="text" name="sort" id="sort" size="25" placeholder="add numbers by (,)"/> <br> <br>
+    
+        <button id="sorting" onclick="Bubblesort()">Bubble Sort</button>
+    
+        <!-- <button id="sorting" onclick="insertionsort()">insertion Sort</button><br><br> -->
+    
+    
+        <p id="allsort"></p>
+    
+    
+        <!-- <label for="sort"> Output array: </label> -->
+    </div>
+
+    <script>
+
+        // ...inbuilt sorting algorithm - quick sort
+
+        // const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+        // var one = fruits.sort();
+        // var two = fruits.reverse();
+        // var three = fruits.sort();
+        // console.log(one);
+        // console.log(two);
+        // console.log(three);
+
+
+
+        // Bubble sort Implementation using Javascript
+        // Syntax
+
+        //     BubbleSort(array) {
+        //         for i -> 0 to arrayLength 
+        // for j -> 0 to(arrayLength - i - 1)
+        //     if arr[j] > arr[j + 1]
+        //         swap(arr[j], arr[j + 1])
+        //     }
+
+        // start...
+
+        function Bubblesort() {
+
+            let array = document.getElementById("sort").value.split(",").map(Number);
+            let inputarr = document.getElementById("sort").value.split(",").map(String);
+            for (var i = 0; i < array.length; i++) {
+                for (var j = 0; j < (array.length - i - 1); j++) {
+                    if (array[j] > array[j + 1]) {
+                        var data = array[j]
+                        array[j] = array[j + 1]
+                        array[j + 1] = data
+
+                    }
+                }
+            }
+
+            console.log(array);
+            document.getElementById("allsort").innerHTML = "sorted array is :  " + array.join(",");
+            // document.write(array);
+        }
+
+
+
+        // var array = [12, 25, 4, 32, -25, 14, 6, 8, -10];
+
+        // Bubblesort(array);
+        // console.log(array);
+
+        // ------------------------------------------------------------------
+
+        // insertion sort....
+
+        // function insertionsort() {
+
+        //     let inputarr = document.getElementById("sort").value.split(",").map(String);
+
+        //     let n = inputarr.length;
+        //     for (let i = 1; i < n; i++) {
+        //         let current = inputarr[i];
+        //         let j = i - 1;
+        //         while ((j > -1) && (current < inputarr[j])) {
+        //             inputarr[j + 1] = inputarr[j];
+        //             j--;
+        //         }
+        //         inputarr[j + 1] = current;
+        //     }
+
+        //     console.log(inputarr);
+        //     document.getElementById("allsort").innerHTML = "sorted array is :  " + inputarr.join(",");
+
+
+        // }
+
+        // var inputarr = [12, 25, 4, -32, -25, 14, 6, 8, -10];
+        // var inputarr = ['orange', 'guava', 'strawberry', 'apple', 'banana'];
+
+
+
+
+
+
+    </script>
+
+</body>
+
+
+</html>
