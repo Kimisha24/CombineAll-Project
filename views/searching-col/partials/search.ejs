@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search..</title>
+
+    <style>
+        .search-box {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table>
+
+        <button onclick="showmore()" id="btn" tabindex="3">Show More </button>
+        <form action="/search" method="post">
+
+            <div id="allsearch" style="display: none;">
+                <label for="f_name">firstname:</label>
+                <input type="text" name="f_name" id="f_name" placeholder="enter your firstname" tabindex="4">
+                <label for="l_name">course:</label>
+                <input type="text" name="course" id="course" placeholder="enter your course" tabindex="5">
+                <label for="age">Age:</label>
+                <input type="text" name="age" id="age" placeholder="enter your age" tabindex="6">
+                <label for="city">City:</label>
+                <input type="text" name="city" id="city" placeholder="enter your city" tabindex="7">
+                <label for="oprator">Oprator:</label>
+                <select name="operator" id="operator" tabindex="8">
+                    <option value="and" id="and">AND</option>
+                    <option value="or" id="or">OR</option>
+                </select>
+
+                <input type="submit" value="search" style="width: 100px;" tabindex="9">
+            </div>
+
+
+        </form>
+    </table>
+
+    <script>
+        function showmore() {
+            var x = document.getElementById('allsearch');
+            var y = x.style.display;
+
+            if (y == 'block') {
+                x.style.display = 'none';
+                btn.innerHTML = 'Show More';
+            } else {
+                x.style.display = 'block';
+                btn.innerHTML = 'Show Less';
+            }
+        }
+    </script>
+</body>
+
+</html>

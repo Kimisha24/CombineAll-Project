@@ -3,6 +3,7 @@ var citystateroute = require('../routers/citystateroute');
 var alljstask = require('../routers/jstask');
 var pagiwithorder = require('../routers/pagiwithorderroute');
 var colorderpagi = require('../routers/colorderroute');
+var serchingcol = require('../routers/searchingcolroute');
 
 var md5 = require('md5');
 const jwt = require('jsonwebtoken');
@@ -13,7 +14,7 @@ function route(app) {
     alljstask(app);
     pagiwithorder(app);
     colorderpagi(app);
-
+    serchingcol(app);
 
     var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz12345678910';
     function random(n) {
