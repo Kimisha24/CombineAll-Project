@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search with delimiter</title>
+
+    <style>
+        table {
+            /* height: 80%; */
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: auto auto;
+        }
+
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        th {
+            font-size: 15px;
+            background-color: lightblue;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            width: 60px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            /* text-align: center; */
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        input {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        .searching {
+            margin-bottom: 10px;
+        }
+
+        .both {
+            display: flex;
+            margin: 30px;
+        }
+
+        .sign {
+            width: calc(100%/2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>24DEV098:Kimisha ladani </h1>
+    <h2>student data list</h2>
+
+    <div class="both">
+        <div class="sign">
+            <form action="/studentlist" method="get">
+                <input type="search" name="search" id="search" placeholder="search here" tabindex="0" autofocus>
+                <input type="submit" value="Go!" tabindex="1">
+            </form>
+        </div>
+
+
+        <div class="sign">
+            <%- include('./sign') %>
+        </div>
+
+    </div>
+    <table>
+        <tr>
+
+            <th> ID</th>
+            <th> Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>course</th>
+            <th>Phone no</th>
+            <th>birth_date</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>relationship_status </th>
+            <th>City </th>
+            <th> state</th>
+
+        </tr>
+
+        <% data.forEach((item)=>{%>
+
+            <tr>
+
+                <td>
+                    <%=item.stu_id %>
+                </td>
+                <td>
+                    <%=item.f_name %>
+                </td>
+
+                <td>
+                    <%= item.l_name %>
+                </td>
+                <td>
+                    <%= item.email%>
+                </td>
+                <td>
+                    <%= item.course %>
+                </td>
+                <td>
+                    <%= item.contact_no %>
+                </td>
+                <td>
+                    <%= item.birth_date %>
+                </td>
+                <td>
+                    <%= item.age %>
+                </td>
+                <td>
+                    <%= item.gender %>
+                </td>
+                <td>
+                    <%= item.relationship_status %>
+                </td>
+                <td>
+                    <%= item.city %>
+                </td>
+                <td>
+                    <%= item.state %>
+                </td>
+
+
+
+            </tr>
+
+            <%});%>
+
+    </table>
+
+
+
+</body>
+
+</html>

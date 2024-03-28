@@ -4,6 +4,7 @@ var alljstask = require('../routers/jstask');
 var pagiwithorder = require('../routers/pagiwithorderroute');
 var colorderpagi = require('../routers/colorderroute');
 var serchingcol = require('../routers/searchingcolroute');
+var searchwithdelimiter = require('../routers/searchdelimiter');
 
 var md5 = require('md5');
 const jwt = require('jsonwebtoken');
@@ -15,6 +16,8 @@ function route(app) {
     pagiwithorder(app);
     colorderpagi(app);
     serchingcol(app);
+    searchwithdelimiter(app);
+
 
     var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz12345678910';
     function random(n) {
