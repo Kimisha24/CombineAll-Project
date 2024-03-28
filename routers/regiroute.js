@@ -5,6 +5,7 @@ var pagiwithorder = require('../routers/pagiwithorderroute');
 var colorderpagi = require('../routers/colorderroute');
 var serchingcol = require('../routers/searchingcolroute');
 var searchwithdelimiter = require('../routers/searchdelimiter');
+var stuattlistroute = require('../routers/stuattlistroute');
 
 var md5 = require('md5');
 const jwt = require('jsonwebtoken');
@@ -12,12 +13,12 @@ const jwt = require('jsonwebtoken');
 function route(app) {
     
     citystateroute(app);
-    alljstask(app);
+    alljstask(app); 
     pagiwithorder(app);
     colorderpagi(app);
     serchingcol(app);
     searchwithdelimiter(app);
-
+    stuattlistroute(app);
 
     var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz12345678910';
     function random(n) {

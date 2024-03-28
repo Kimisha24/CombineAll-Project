@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form {
+            text-align: end;
+            margin-top: 20px;
+            font-size: 25px;
+        }
+
+        .container {
+            text-align: end;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        button {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/stu_attlist?page=1" method="get">
+
+        <select name="month" id="month">
+            <option id="December" value="December">December </option>
+            <option id="January" value="January">January </option>
+            <option id="February" value="February">February </option>
+        </select>
+
+        <select name="year" id="year">
+            <option id="2023" value="2023">2023</option>
+            <option id="2024" value="2024">2024</option>
+        </select>
+
+        <input type="submit" value="search">
+    </form>
+
+    <div class="container">
+        <button><a href="/stu_attlist?page=1&month=<%=m%>&year=<%=year%>" <%if(Number(p)==1){%> onclick="return false;"
+                <%}%> > << </a>
+        </button>
+        <button><a href="/stu_attlist?page=<%=Number(p)-1 %>&month=<%=m%>&year=<%=year%>" <%if(Number(p)==1){%>
+                onclick="return false;"
+                <%}%> > < </a></button>
+        <!-- <div class="page"> -->
+        <%=p%>
+            <!-- </div> -->
+            <button><a href="/stu_attlist?page=<%=Number(p)+1 %>&month=<%=m%>&year=<%=year%>" <%if(Number(p)==20){%>
+                    onclick="return false;" <%}%> >
+                        > </a></button>
+
+            <button><a href="/stu_attlist?page=<%=lastpage%>&month=<%=m%>&year=<%=year%>" <%if(Number(p)==lastpage){%>
+                    onclick="return
+                    false;" <%}%> > >> </a>
+            </button>
+
+    </div>
+    <script>
+        var month = "<%=m %>";
+        var year = "<%=year %>";
+        document.getElementById(`${month}`).selected = true;
+        document.getElementById(`${year}`).selected = true;
+    </script>
+
+</body>
+
+</html>
