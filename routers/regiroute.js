@@ -1,6 +1,7 @@
 var con = require('../combinedb');
 var citystateroute = require('../routers/citystateroute');
 var alljstask = require('../routers/jstask');
+var pagiwithorder = require('../routers/pagiwithorderroute');
 
 var md5 = require('md5');
 const jwt = require('jsonwebtoken');
@@ -9,7 +10,7 @@ function route(app) {
     
     citystateroute(app);
     alljstask(app);
-
+    pagiwithorder(app);
 
 
 

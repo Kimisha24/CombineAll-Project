@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student data list</title>
+    <style>
+        table {
+            /* height: 100%; */
+            /* width: 100%; */
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        th {
+            font-size: 15px;
+            background-color: lightblue;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        input {
+            font-size: 15px;
+            padding: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+</head>
+
+<body>
+
+    <h2> Student data list </h2>
+    <div>
+        <%- include('./partials/componant',{order, page }) %>
+    </div>
+
+    <table>
+        <tr>
+            <th>student id</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>course</th>
+            <th>Phone no</th>
+            <th>birth_date</th>
+            <th>age</th>
+            <th>Gender</th>
+            <th>relationship_status</th>
+            <th>city</th>
+            <th>state</th>
+            <th>Country</th>
+            <th>created_at</th>
+        </tr>
+
+        <% data.forEach((item)=>{%>
+
+            <tr>
+
+                <td>
+                    <%=item.stu_id %>
+                </td>
+                <td>
+                    <%=item.f_name %>
+                </td>
+
+                <td>
+                    <%= item.l_name %>
+                </td>
+                <td>
+                    <%= item.email%>
+                </td>
+                <td>
+                    <%= item.course %>
+                </td>
+                <td>
+                    <%= item.contact_no %>
+                </td>
+                <td>
+                    <%= item.birth_date %>
+                </td>
+                <td>
+                    <%= item.age %>
+                </td>
+                <td>
+                    <%= item.gender %>
+                </td>
+                <td>
+                    <%= item.relationship_status %>
+                </td>
+                <td>
+                    <%= item.city %>
+                </td>
+                <td>
+                    <%= item.state %>
+                </td>
+                <td>
+                    <%= item.Country %>
+                </td>
+                <td>
+                    <%= item.created_at %>
+                </td>
+
+
+            </tr>
+
+            <%});%>
+
+    </table>
+
+
+</body>
+
+</html>
