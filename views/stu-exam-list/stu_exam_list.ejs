@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sutdent_exam_list</title>
+
+    <style>
+        table {
+            /* height: 100px; */
+            /* width: 100%; */
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 50px auto;
+        }
+
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            /* font-size: 20px; */
+            padding: 10px;
+        }
+
+        th {
+            /* font-size: 20px; */
+            background-color: lightblue;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>24DEV098:KIMISHA</h2>
+
+    <h3> Student exam list </h3>
+    <%- include('./partials/componant',{p}) %>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">student_id</th>
+                    <th rowspan="2">Name</th>
+                    <th colspan="2">Prillim exam</th>
+                    <th colspan="2">Terminal exam</th>
+                    <th colspan="2">Final exam</th>
+                    <th rowspan="2">Obtained-mark</th>
+                    <th rowspan="2">View result details</th>
+                    <th rowspan="2">View Att details</th>
+                </tr>
+
+
+                <tr>
+                    <th>Practical</th>
+                    <th>Theory</th>
+                    <th>Practical</th>
+                    <th>Theory</th>
+                    <th>Practical</th>
+                    <th>Theory</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for(let i=0; i<result.length; i +=3 ) { %>
+                    <tr>
+                        <td>
+                            <%=result[i].stu_id %>
+                        </td>
+                        <td>
+                            <%=result[i].stu_name%>
+                        </td>
+
+                        <% for(let j=i; j< i+3 ; j++ ){ %>
+                            <td>
+                                <%= result[j].practical %>
+                            </td>
+                            <td>
+                                <%= result[j].theory %>
+                            </td>
+                            <% } %>
+
+                                <td>
+                                    <%= result[i].practical + result[i].theory + result[i+1].practical +
+                                        result[i+1].theory + result[i+2].practical + result[i+2].theory %>
+
+                                </td>
+                                <td>
+                                    <button> <a href="/viewdetails?id=<%=result[i].stu_id %>" target="_blank"> View
+                                            result</a> </button>
+                                </td>
+
+                                <td>
+                                    <button><a href="/view_att?stu_id=<%=result[i].stu_id%>" target="_blank">view
+                                            attendence</a></button>
+                                </td>
+
+
+                    </tr>
+
+                    <% } %>
+            </tbody>
+
+        </table>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view attendence</title>
+
+    <style>
+        form {
+            text-align: center;
+            margin: 250px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="/view_att" method="get">
+
+        <select name="month" id="month">
+            <option id="December" value="December">December </option>
+            <option id="January" value="January">January </option>
+            <option id="February" value="February">February </option>
+        </select>
+
+        <select name="year" id="year">
+            <option id="2023" value="2023">2023</option>
+            <option id="2024" value="2024">2024</option>
+        </select>
+
+        <input type="submit" value="search">
+
+
+
+        <h3> ID:<%=result[0].stu_id %>
+        </h3>
+
+        <h3> Name: <%=result[0].stu_name %>
+        </h3>
+
+        <% for(let i=0; i<result.length; i +=3 ) { %>
+
+            <h3>present_days: <%= result[i].present_days %>
+            </h3>
+            <%}%>
+
+
+    </form>
+
+    <script>
+        var month = "<%=m %>";
+        var year = "<%=year %>";
+        document.getElementById(`${month}`).selected = true;
+        document.getElementById(`${year}`).selected = true;
+    </script>
+
+
+</body>
+
+</html>

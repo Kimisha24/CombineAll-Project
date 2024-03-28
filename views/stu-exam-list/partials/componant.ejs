@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            text-align: end;
+            margin-top: 10px;
+        }
+
+        button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        button {
+            font-size: 15 px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <%if(Number(p)!=1){%>
+            <button><a href="/stu_exam_list?page=1">
+                    << </a>
+            </button>
+            <button><a href="/stu_exam_list?page=<%=Number(p)-1 %>">
+                    < </a></button>
+            <% } %>
+                <!-- <div class="page"> -->
+                <%=p%>
+                    <!-- </div> -->
+                    <%if(Number(p)!=10){%>
+
+                        <button><a href="/stu_exam_list?page=<%=Number(p)+1 %>">
+                                > </a></button>
+
+                        <button><a href="/stu_exam_list?page=10"> >> </a>
+                        </button>
+                        <% }%>
+    </div>
+
+</body>
+
+</html>
