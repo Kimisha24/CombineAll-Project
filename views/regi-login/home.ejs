@@ -1,36 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home-page</title>
     <style>
-        /* body{
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
             text-align: center;
-        } */
-        h2{
+        }
+
+        .container {
+            max-width: 1140px;
+            padding: 0 15px;
+            margin: 0 auto;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .col {
+            width: calc(100%/3.2);
+            padding: 30px 50px;
+            margin: 10px 10px;
+            background-color: lightgrey;
             text-align: center;
+        }
+
+        a {
+            color: black;
+        }
+        a:hover{
+            color: rgb(96, 74, 237);
         }
     </style>
 </head>
+
 <body>
-    <h2>Welcome to the my Web..!</h2>
-    <a href="/selector">City-State</a><br><br>
-    <a href="/dynamictable">Dynamic-table</a><br><br>
-    <a href="/Kukucube">Kuku-Cube</a><br><br>
-    <a href="/tictactoe">Tictactoe</a><br><br>
-    <a href="/jsevent">JsEvent</a><br><br>
-    <a href="/Bubblesort">Sort</a><br><br>
-    <a href="/pagi-with-order">Pagi-With-Order</a><br><br>
-    <a href="/col-order-pagi">Col-order-pagi</a><br><br>
-    <a href="/searching-col">Searching-Column</a><br><br>
-    <a href="/search-with-delimiter">Search-With-Delimiter</a><br><br>
-    <a href="/stu_attlist">Student Attendence List</a><br><br>
-    <a href="/stu_exam_list">Student Exam Report</a><br><br>
-    <a href="/jobwithajax">Job With Ajax</a><br><br>
+    <div class="container">
+        <h2>Welcome to the my Website</h2>
+        <div class="row">
+            <div class="col">
+                <h3>JS-TASK</h3>
+             <a href="/dynamictable">Dynamic-table</a><br><br>
+             <a href="/Kukucube">Kuku-Cube</a><br><br>
+           <a href="/tictactoe">Tictactoe</a><br><br>
+         <a href="/jsevent">JsEvent</a><br><br>
+               <a href="/Bubblesort">Sort</a><br><br>
+
+            </div>
+
+            <div class="col">
+                <h3>Pagination</h3>
+                <a href="/pagi-with-order">Pagi-With-Order</a><br><br>
+                <a href="/col-order-pagi">Col-order-pagi</a><br><br>
+            </div>
+            <div class="col">
+
+                <h3>Searching</h3>
+                <a href="/searching-col">Searching-Column</a><br><br>
+                <a href="/search-with-delimiter">Search-With-Delimiter</a><br><br>
+            </div>
+            <div class="col">
+                <h3>student data</h3>
+                <a href="/stu_attlist">Student Attendence List</a><br><br>
+                <a href="/stu_exam_list">Student Exam Report</a><br><br>
+            </div>
+            <div class="col">
+                <h3>JOB APP</h3>
+                <a href="/selector">City-State</a><br><br>
+                <a href="/jobwithajax">Job With Ajax</a><br><br>
+            </div>
+            <div class="col">
+                <h3>dynamic</h3>
+                <a href=""></a><br><br>
+            </div>
+        </div>
+    </div>
+    <!-- <a href=""></a><br><br>
     <a href=""></a><br><br>
-    <a href=""></a><br><br>
-    <a href=""></a><br><br>
+    <a href=""></a><br><br> -->
 
 </body>
+
 </html>
