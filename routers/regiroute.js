@@ -10,6 +10,7 @@ var stuexamlist = require('../routers/stuexamlist');
 var jobwithajax = require('../routers/jobwithajaxroute');
 var jobwithcrud = require('../routers/jobwithcrudroute');
 var dynamicquerygrid = require('../routers/dynamicquerygrid');
+var fetchapiroute = require('../routers/fetchapiroute');
 
 
 var md5 = require('md5');
@@ -28,6 +29,8 @@ function route(app) {
     jobwithajax(app);
     jobwithcrud(app);
     dynamicquerygrid(app);
+    fetchapiroute(app);
+
 
     var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz12345678910';
     function random(n) {
