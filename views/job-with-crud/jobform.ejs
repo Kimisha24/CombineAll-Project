@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Job validation</title>
+    <style>
+        /* body {
+            text-align: center;
+        } */
+
+        h3 {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        span {
+            font-size: 15px;
+            color: red;
+        }
+
+
+        .btn {
+            text-align: center;
+            margin-top: 20px;
+
+        }
+
+        .card-row {
+            display: flex;
+        }
+
+        .col {
+            width: calc(100%/2);
+        }
+    </style>
+</head>
+
+<body>
+    <h3> Fill your details </h3>
+
+    <form action="/formsubmit" method="post" onsubmit="return validatedata()">
+
+        <fieldset>
+            <legend>basic details</legend>
+            <label for="first_name"> Firstname :</label>
+            <input type="text" name="first_name" id="first_name" />
+            <span id="errname"></span>
+
+            <label for="last_name"> Lastname :</label>
+            <input type="text" name="last_name" id="last_name" />
+            <span id="errlname"></span><br><br>
+
+            <label for="designation"> Designation: </label>
+            <input type="text" name="designation" id="designation" />
+            <span id="errdesig"></span><br><br>
+
+            <label for="current_add"> Current address: </label>
+            <textarea id="current_add" name="current_add" rows="2" cols="20"></textarea>
+            <span id="errcurr"></span>
+
+            <label for="perment_add "> Perment address: </label>
+            <textarea id="perment_add " name="perment_add" rows="2" cols="20"></textarea>
+            <span id="errper"></span><br><br>
+
+            <label for="city"> City :</label>
+            <input type="text" name="city" id="city" />
+            <span id="errcity"></span>
+
+            <label for="zip_code"> Zip-code :</label>
+            <input type="text" name="zip_code" id="zip_code" placeholder="123456" />
+            <span id="errzip"></span><br><br>
+
+            <label for="state"> Choose a state :</label>
+            <select name="state" id="state">
+                <option value="">select</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgadh">Chhattisgadh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+            </select>
+            <span id="errstate"></span><br><br>
+
+            <label for="email"> Email :</label>
+            <input type="text" id="email" name="email" placeholder="abc@xyz.com" />
+            <span id="erremail"></span>
+
+            <label for="phone_no">Phone no :</label>
+            <input type="text" name="phone_no" id="phone_no" />
+            <span id="errphone"></span> <br><br>
+
+            <label for="gender">Gender :</label>
+            <input type="radio" name="gender" value="male" id="male"> <label for="male">Male</label>
+            <input type="radio" name="gender" value="female" id="female"> <label for="female">Female</label>
+            <span id="errgender"></span><br><br>
+
+
+            <label for="relationship_status"> Relationship status :</label>
+            <select name="relationship_status" id="relationship_status">
+                <option value="">select</option>
+                <option value="married">married</option>
+                <option value="unmarried">unmarried</option>
+            </select>
+            <span id="errreleation"></span>
+
+
+            <label for="birth_date">Date of Birth :</label>
+            <input type="text" id="birth_date" name="birth_date" placeholder="yyyy-mm-dd">
+            <span id="errdob"></span> <br> <br>
+        </fieldset>
+        <br><br>
+        
+  
+        <fieldset>
+            <legend>education details</legend>
+    
+            <input type="button" value="Add" id="plus" onclick="plusedu()">
+            <input type="button" value="Remove" id="minus" onclick="minusedu()">
+            <div class="edurow">
+                <div class="education">
+                    <label for="etype">education:</label>
+                    <select name="education_type[]" id="education_type">
+                        <option value="ssc" name="ssc[]">ssc</option>
+                        <option value="hsc" name="hsc[]">hsc</option>
+                        <option value="bachelor" name="bachelor[]">bachelor</option>
+                        <option value="master" name="master[]">master</option>
+                    </select>
+                    <span id="erredutype"></span>
+                    <label for="nameboard"> Name of board :</label>
+                    <input type="text" name="nameboard[]" id="nameboard" />
+                    <span id="errboard"></span>
+    
+                    <label for="passyear"> Passing year :</label>
+                    <input type="text" name="passyear[]" id="passyear" />
+                    <span id="erryear"></span>
+    
+                    <label for="percentage"> Percentage :</label>
+                    <input type="text" name="percentage[]" id="percentage" />
+                    <span id="errpertage"></span> <br> <br>
+                </div>
+            </div>
+        </fieldset>
+
+
+        <br><br>
+        <fieldset>
+            <legend>work experience</legend>
+            <input type="button" value="plus" id="plus" onclick="pluswork()">
+            <input type="button" value="minus" id="minus" onclick="minuswork()">
+
+            <div class="row">
+                <div class="experience">
+                    <label for="company_name"> Company name:</label>
+                    <input type="text" name="company_name[]" id="company_name" />
+                    <span id="errcompany"></span>
+                    <label for="comdesg"> Designation: </label>
+                    <input type="text" name="comdesg[]" id="comdesg" />
+                    <span id="errcomdesg"></span>
+                    <label for="from_date">From :</label>
+                    <input type="text" id="from_date" name="from_date[]" />
+                    <span id="errfrom"></span>
+                    <label for="to_date">To :</label>
+                    <input type="text" id="to_date" name="to_date[]">
+                    <span id="errto"></span><br><br>
+                </div>
+            </div>
+
+        </fieldset>
+        <br><br>
+
+        <div class="card-row">
+            <div class="col">
+                <fieldset>
+                    <legend>language known</legend>
+                    <input type="checkbox" id="hindi" name="hindi" value="hindi">
+                    <label for="hindi"> Hindi</label>
+                    <input type="checkbox" id="op1" name="r_hindi" value="read">
+                    <label for="op1"> Read</label>
+                    <input type="checkbox" id="op2" name="w_hindi" value="write">
+                    <label for="op2"> Write</label>
+                    <input type="checkbox" id="op3" name="s_hindi" value="speak">
+                    <label for="op3"> Speak</label>
+                    <span id="errlang"></span>
+                    <span id="errop1"></span>
+                    <br><br>
+
+                    <input type="checkbox" id="english" name="english" value="english">
+                    <label for="english"> English</label>
+                    <input type="checkbox" id="op4" name="r_eng" value="read">
+                    <label for="op4"> Read</label>
+                    <input type="checkbox" id="op5" name="w_eng" value="write">
+                    <label for="op5"> Write</label>
+                    <input type="checkbox" id="op6" name="s_eng" value="speak">
+                    <label for="op6"> Speak</label>
+                    <span id="errlang"></span>
+                    <span id="errop2"></span>
+                    <br><br>
+
+                    <input type="checkbox" id="gujrati" name="gujrati" value="gujrati">
+                    <label for="gujrati"> Gujrati</label>
+                    <input type="checkbox" id="op7" name="r_guj" value="read">
+                    <label for="op7"> Read</label>
+                    <input type="checkbox" id="op8" name="w_guj" value="write">
+                    <label for="op8"> Write</label>
+                    <input type="checkbox" id="op9" name="s_guj" value="speak">
+                    <label for="op9"> Speak</label>
+                    <span id="errlang"></span>
+                    <span id="errop3"></span>
+                </fieldset>
+                <br><br>
+            </div>
+
+            <div class="col">
+                <fieldset>
+                    <legend>Technologies you know</legend>
+                    <input type="checkbox" id="php" name="php" value="php">
+                    <label for="php">PHP</label>
+                    <input type="radio" name="tech_php" id="tech1" value="beginer"> <label for="tech1">beginer</label>
+                    <input type="radio" name="tech_php" id="tech2" value="mideator"><label for="tech2">mideator</label>
+                    <input type="radio" name="tech_php" id="tech3" value="expert"><label for="tech3">expert</label>
+                    <br><br>
+
+                    <input type="checkbox" id="mysql" name="mysql" value="mysql">
+                    <label for="mysql">Mysql</label>
+                    <input type="radio" name="tech_mysql" id="tech4" value="beginer"><label for="tech4">beginer</label>
+                    <input type="radio" name="tech_mysql" id="tech5" value="mideator"><label
+                        for="tech5">mideator</label>
+                    <input type="radio" name="tech_mysql" id="tech6" value="expert"><label for="tech6">expert</label>
+                    <br><br>
+
+                    <input type="checkbox" id="laravel" name="laravel" value="laravel">
+                    <label for="laravel">Laravel</label>
+                    <input type="radio" name="tech_laravel" id="tech7" value="beginer"><label
+                        for="tech7">beginer</label>
+                    <input type="radio" name="tech_laravel" id="tech8" value="mideator"><label
+                        for="tech8">mideator</label>
+                    <input type="radio" name="tech_laravel" id="tech9" value="expert"><label for="tech9">expert</label>
+                    <br><br>
+
+                    <input type="checkbox" id="oracle" name="oracle" value="oracle">
+                    <label for="oracle">Oracle</label>
+                    <input type="radio" name="tech_oracle" id="tech10" value="beginer"><label
+                        for="tech10">beginer</label>
+                    <input type="radio" name="tech_oracle" id="tech11" value="mideator"> <label
+                        for="tech11">mideator</label>
+                    <input type="radio" name="tech_oracle" id="tech12" value="expert"> <label
+                        for="tech12">expert</label>
+
+                </fieldset>
+                <br><br>
+            </div>
+        </div>
+
+        <fieldset>
+            <legend>Referance contact</legend>
+            <input type="button" value="plus" id="plus" onclick="plusref()">
+            <input type="button" value="minus" id="minus" onclick="minusref()">
+
+            <div class="refrow">
+                <div class="referance">
+                    <label for="name"> Name: </label>
+                    <input type="text" name="refname[]" id="refname" />
+                    <span id="errref"></span>
+                    <label for="contactno"> Contact no: </label>
+                    <input type="text" name="refno[]" id="refno" />
+                    <span id="errnum"></span>
+                    <label for="relation"> Relation :</label>
+                    <input type="text" name="refrelation[]" id="refrelation" />
+                    <span id="errel"></span><br><br>
+                </div>
+            </div>
+
+            <!-- 
+            <label for="name"> Name : </label>
+            <input type="text" name="name" id="name" />
+            <label for="contactno"> Contact no: </label>
+            <input type="text" name="contactno" id="contactno" />
+            <label for="relation"> Relation: </label>
+            <input type="text" name="relation" id="relation" /> -->
+        </fieldset>
+        <br><br>
+
+
+        <fieldset>
+            <legend> Prefernces </legend>
+            <table border="0">
+                <tr>
+                    <td rowspan="5">
+                        <label for="location"> Choose a location</label>
+                    <td rowspan="5">
+                        <select name="location" id="location">
+                            <option value="">select location</option>
+                            <option value="ahmedabad">ahmedabad</option>
+                            <option value="rajkot">rajkot</option>
+                            <option value="gandhinagar">gandhinagar</option>
+                        </select>
+                        <span id="errloc"></span>
+                    </td>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="5">
+                        <label for="department"> Department</label>
+
+                    <td rowspan="5">
+                        <select name="department" id="department">
+                            <option value="">select department</option>
+                            <option value="devloper">devloper</option>
+                            <option value="design">design</option>
+                            <option value="marketing">marketing</option>
+                        </select>
+                        <span id="errdep"></span>
+                    </td>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <label for="noticeperiod"> Notice period: </label>
+                        <input type="text" name="noticeperiod" id="noticeperiod" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label for="expactedctc"> Expacted CTC: </label>
+                        <input type="text" name="expactedctc" id="expactedctc" />
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label for="currentctc"> Current CTC: </label>
+                        <input type="text" name="currentctc" id="currentctc" />
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
+
+        <div class="btn">
+            <input type="submit" value="submit ">
+            <input type="reset" value="reset">
+          
+        </div>
+       
+
+    </form>
+
+    <script src="/crudjobscript.js"></script>
+
+
+
+
+</body>
+
+</html>

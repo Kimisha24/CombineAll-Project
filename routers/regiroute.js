@@ -8,7 +8,9 @@ var searchwithdelimiter = require('../routers/searchdelimiter');
 var stuattlistroute = require('../routers/stuattlistroute');
 var stuexamlist = require('../routers/stuexamlist');
 var jobwithajax = require('../routers/jobwithajaxroute');
+var jobwithcrud = require('../routers/jobwithcrudroute');
 var dynamicquerygrid = require('../routers/dynamicquerygrid');
+
 
 var md5 = require('md5');
 const jwt = require('jsonwebtoken');
@@ -24,6 +26,7 @@ function route(app) {
     stuattlistroute(app);
     stuexamlist(app);
     jobwithajax(app);
+    jobwithcrud(app);
     dynamicquerygrid(app);
 
     var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz12345678910';
