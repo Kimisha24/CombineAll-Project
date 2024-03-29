@@ -1,0 +1,347 @@
+:root {
+    --Orange: #FC7F3A;
+    --TOMATO: #FC6868;
+    --YELLOW: #FFBB38;
+    --YELLOW2: #FFC80A;
+    --GREEN: #389B48;
+    --GREEN2: #64E379;
+    --BLACK: #000000;
+    --WHITE: #FFFFFF;
+    --SITEBG: #F9F7EE;
+    --CARDBG: #EBE9DE;
+    --cream: #FFFDD0;
+    --blue: #4a7aff;
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--SITEBG);
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+/* header............ */
+
+.navbar {
+    display: flex;
+}
+
+.logo {
+    float: left;
+    margin-top: 35px;
+}
+
+.nav-items li {
+    list-style: none;
+    float: left;
+    padding: 20px 20px;
+}
+
+.nav-items li a {
+    text-decoration: none;
+    color: var(--BLACK);
+
+}
+
+.nav-items {
+    margin-left: 320px;
+}
+
+.nav-items li .h_btn {
+    border: 1px solid var(--BLACK);
+    padding: 10px 15px;
+    background-color: var(--BLACK);
+    color: var(--WHITE);
+    border-radius: 5px;
+}
+
+header {
+    padding: 10px;
+}
+
+/* header-section............................... */
+.header_section {
+    margin-top: 100px;
+}
+
+.h_row {
+    display: flex;
+}
+
+.h_col {
+    width: calc(100%/2);
+}
+
+.h_text .highlight {
+    display: flex;
+    align-items: center;
+}
+
+.highlight span {
+    font-weight: 500;
+}
+
+.h_text h1 {
+    font-size: 3rem;
+}
+
+.h_text p {
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.form {
+    margin-top: 60px;
+    border: 1px solid var(--BLACK);
+    /* border-right-style: groove; */
+    width: 286px;
+    /* border-bottom-style: inset; */
+    box-shadow: 3px 3px 0 0 var(--BLACK);
+}
+
+.form input {
+    height: 50px;
+    text-decoration: none;
+}
+
+.form #submit {
+    background-color: var(--YELLOW2);
+    border: 2px solid var(--BLACK);
+}
+
+.form #email {
+    border: 2px solid var(--BLACK);
+}
+
+.open p {
+    margin-top: 50px;
+    width: 290px;
+    padding: 15px;
+    border: 1px solid var(--BLACK);
+    background-color: var(--cream);
+}
+
+.circle {
+    background-color: var(--Orange);
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    position: relative;
+    margin-left: 325px;
+}
+
+.web {
+    position: absolute;
+    /* margin: 73px 50px; */
+    font-size: 35px;
+    font-weight: bold;
+    width: 100px;
+    left: 60px;
+    top: 70px;
+}
+
+.orange {
+    position: absolute;
+    /* margin: 28px 134px; */
+    left: 110px;
+    top: 15px;
+}
+
+.rectangle {
+    background-color: var(--YELLOW);
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border-radius: 0 50% 50% 0;
+    margin: -85px 200px;
+    z-index: -1;
+}
+
+.social {
+    position: absolute;
+    /* margin: 85px 80px; */
+    font-size: 40px;
+    font-weight: bold;
+    left: 70px;
+    top: 90px;
+}
+
+.yellow {
+    position: absolute;
+    /* margin: 5px 15px; */
+    left: 20px;
+    top: 10px;
+}
+
+.square {
+    position: relative;
+    background-color: var(--GREEN);
+    color: var(--WHITE);
+    height: 240px;
+    width: 250px;
+    margin: 1px 2px;
+}
+
+.uix {
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    width: 100px;
+    top: -10px;
+    left: 30px;
+}
+
+.green {
+    position: absolute;
+    left: 137px;
+    top: 155px;
+}
+
+.new {
+    position: relative;
+}
+
+.group {
+    position: absolute;
+    left: 430px;
+    bottom: 30px;
+}
+
+/* access................................. */
+
+.access {
+    margin-top: 150px;
+    background-color: var(--BLACK);
+    color: var(--WHITE);
+}
+
+.line {
+    transform: rotate(90deg);
+}
+
+.get {
+    /* align-items: center; */
+    justify-content: center;
+}
+
+/* services.................. */
+
+.services {
+    margin-top: 150px;
+}
+
+.work_text {
+    text-align: center;
+}
+
+.work_text h3 {
+    background-color: var(--Orange);
+    color: var(--WHITE);
+    display: inline-block;
+    text-align: center;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.work_text span {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.work_photos {
+    margin: 50px;
+}
+
+.card_row {
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* border: 1px solid red; */
+}
+
+.card_col {
+    width: calc(100%/3);
+    /* border: 1px solid green; */
+    border-radius: 12px;
+    margin: 12px;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--CARDBG);
+}
+
+.start,
+.design,
+.contact p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.text_here p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.start_btn button {
+    font-size: 1.2rem;
+    box-shadow: 3px 3px 0 0 var(--BLACK);
+    background-color: var(--GREEN);
+    border: 2px solid var(--BLACK);
+    border-radius: 5px;
+    padding: 13px;
+    color: var(--WHITE);
+    margin-top: 30px;
+}
+
+.design_btn button {
+    font-size: 1.2rem;
+    box-shadow: 3px 3px 0 0 var(--BLACK);
+    background-color: var(--YELLOW);
+    border: 2px solid var(--BLACK);
+    border-radius: 5px;
+    padding: 13px;
+    margin-top: 35px;
+
+}
+
+.contact_btn button {
+    font-size: 1.2rem;
+    box-shadow: 3px 3px 0 0 var(--BLACK);
+    background-color: var(--Orange);
+    border: 2px solid var(--BLACK);
+    border-radius: 5px;
+    padding: 13px;
+    margin-top: 15px;
+
+}
+
+/* works.......................... */
+
+.works {
+    margin-top: 150px;
+}
+
+.w_text {
+    text-align: center;
+}
+
+.w_heading h3 {
+    background-color: var(--blue);
+    color: var(--WHITE);
+    display: inline-block;
+    text-align: center;
+    border-radius: 15px;
+    padding: 8px;
+}
+
+.w_text span {
+    font-size: 2rem;
+    font-weight: bold;
+}
