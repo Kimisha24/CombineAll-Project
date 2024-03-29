@@ -11,7 +11,7 @@ var jobwithajax = require('../routers/jobwithajaxroute');
 var jobwithcrud = require('../routers/jobwithcrudroute');
 var dynamicquerygrid = require('../routers/dynamicquerygrid');
 var fetchapiroute = require('../routers/fetchapiroute');
-
+var csstask1 = require('../routers/csstask1');
 
 var md5 = require('md5');
 const jwt = require('jsonwebtoken');
@@ -30,7 +30,7 @@ function route(app) {
     jobwithcrud(app);
     dynamicquerygrid(app);
     fetchapiroute(app);
-
+    csstask1(app);
 
     var char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz12345678910';
     function random(n) {

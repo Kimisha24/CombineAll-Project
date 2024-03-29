@@ -1,0 +1,391 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.container {
+    max-width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* header...... */
+
+
+nav {
+    background-color: lightsteelblue;
+    z-index: 100;
+    top: 0;
+    /* position: fixed; */
+    width: 100%;
+    /* opacity: 0.7; */
+}
+
+.navbar {
+    display: flex;
+    /* width: auto;
+    height: auto; */
+    display: inline-block;
+
+}
+
+.logo img {
+    padding-top: 30px;
+    padding-left: 10px;
+}
+
+.logo {
+    float: left;
+}
+
+.nav-items {
+    margin-left: 470px;
+}
+
+.nav-items li {
+    list-style: none;
+    float: left;
+    padding: 20px 20px;
+}
+
+.nav-items li a {
+    color: #183B56;
+    text-decoration: none;
+}
+
+.nav-items li a:hover {
+    color: #f5f5f5
+}
+
+.nav-items li input {
+    border: 1px solid #1565D8;
+    background-color: #1565D8;
+    color: #f5f5f5;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.nav-items li input:hover {
+    background-color: #f5f5f5;
+    color: #1565D8;
+}
+
+/* header_body section */
+
+.header_body {
+    margin-top: 110px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin: 0 - 100px; */
+    margin-bottom: 50px;
+}
+
+.col .photo1 img {
+    height: 380px;
+    width: 500px;
+
+}
+
+.col {
+    width: calc(100% /2);
+    padding: 0 50px;
+    /* border: 1px solid red; */
+    /* width: 40%; */
+}
+
+
+.col .text {
+    padding: 50px 50px;
+}
+
+.col .text h1 {
+    color: #183B56;
+    font-size: 30px;
+}
+
+.col .text p {
+    color: #183B56;
+    font-size: 16px;
+}
+
+.col .text button {
+    background-color: #1565D8;
+    border: 1px solid #1565D8;
+    color: #ffffff;
+    height: 45px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.col .text button:hover {
+    background-color: #f5f5f5;
+    color: #1565D8;
+}
+
+/* services section..... */
+
+.services {
+    /* margin-bottom: 50px; */
+    padding: 10px;
+}
+
+/* servicebox1......................... */
+.servicebox1 .servicetextgrp h6 {
+    color: #36B37E;
+}
+
+.servicebox1 .servicetextgrp {
+    text-align: center;
+}
+
+.servicebox1 .servicetextgrp p {
+    font-size: smaller;
+}
+
+.points {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin: 0 - 100px; */
+    margin-bottom: 50px;
+}
+
+.ser_point {
+    width: calc(100% /3);
+    padding: 0 50px;
+}
+
+.ser_point .one p {
+    /* background-color: #dddddd; */
+    font-size: 15px;
+}
+
+/* servicebox2......................... */
+
+
+.servicebox2 .define {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.servicebox2 .define .de_box2 {
+    width: calc(100%/3.2);
+    padding: 20 40px;
+    margin: 10px 10px;
+    background-color: lightsteelblue;
+
+    /* width: calc(100%/2); */
+    /* margin-left: 10px; */
+}
+
+.servicebox2 .define .de_box2 .card .two p {
+    /* background-color: #dddddd; */
+    font-size: small;
+
+}
+
+.servicebox2 .define .de_box2 .card .two span a {
+    font-size: smaller;
+    color: #1565D8;
+    text-decoration: none;
+}
+
+.servicebox2 .define .de_box2 .card {
+    padding: 35px;
+}
+
+/* tips........................... */
+
+/* tip texts.................. */
+
+.tips {
+    /* margin-top: 30px; */
+    padding: 5px;
+}
+
+.tip_text h6 {
+    color: #36B37E;
+    margin-top: 135px;
+}
+
+.tip_text {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tip_text p {
+    font-size: 15px;
+}
+
+/* tip photos.............. */
+
+.tip_photos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tip_photos .tip_photos1 {
+    width: calc(100%/2);
+    size-adjust: cover;
+    color: #ffffff;
+
+    /* width: calc(100%/3); */
+}
+
+.tip_img1 {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.22), rgba(34, 15, 28, 0.8)), url(/css-task-1/assets/Image.png);
+    height: 500px;
+    /* width: 450px; */
+    width: 90%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 15px;
+}
+
+.tip_img2 {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.22), rgba(34, 15, 28, 0.8)), url(/css-task-1/assets/Image2.png);
+    height: 500px;
+    /* width: 450px; */
+    width: 90%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 15px;
+}
+
+/* your benifits.................... */
+
+.benifits {
+    margin-top: 100px;
+    padding: 10px;
+
+}
+
+.benifit_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.benifit_cols {
+    width: calc(100%/3.2);
+    padding: 20px 40px;
+    margin: 20px 10px;
+    background-color: lightgrey;
+
+    /* width: calc(100%2.5); */
+
+}
+
+.benifit_cols .benifit_cards .three h6 {
+    color: #36B37E;
+}
+
+.benifit_cols .benifit_cards .four p {
+    color: #5A7184;
+    font-size: small;
+}
+
+.benifit_cards {
+    margin-bottom: 50px;
+}
+
+/* your ratings */
+
+.rating {
+    margin-top: 50px;
+    padding: 10px;
+    /* background-color: #5A7184; */
+}
+
+.rating_section .rat_one .rat_card {
+    padding: 20px;
+}
+
+.rating_section {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.rating_section .rat_one {
+    width: calc(100%/3);
+    /* padding-left: -15px; */
+
+}
+
+.rat_one .rat_img img {
+    margin: -6px;
+}
+
+.rat_one p {
+    font-size: unset;
+    color: #5A7184;
+}
+
+.rat_one span {
+    color: #183B56;
+}
+
+.rat_one .rat_img2 {
+    margin-bottom: 10px;
+}
+
+/* footer............. */
+
+footer {
+    background-color: #183B56;
+}
+
+.footer {
+    /* border: 1px solid red; */
+    height: 300px;
+    margin-top: 100px;
+    /* text-align: center; */
+    color: #ffffff;
+    display: flex;
+    padding: 50px 50px;
+}
+
+.part1 {
+    width: 30%;
+    text-align: left;
+}
+
+.part2 {
+    width: 70%;
+    text-align: left;
+}
+
+.part2 .footer_p {
+    padding-top: 50px;
+}
+
+.part2 .footer_card input {
+    border-radius: 5px;
+    height: 35px;
+    size: 50px;
+    width: 300px;
+}
+
+.part2 .footer_card button {
+    background-color: #1565D8;
+    border: 1px solid #1565D8;
+    color: #ffffff;
+    height: 35px;
+    padding: 10px;
+    border-radius: 5px;
+}
