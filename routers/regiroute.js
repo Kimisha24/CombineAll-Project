@@ -48,7 +48,6 @@ function route(app) {
 
     app.get('/', (req, res) => {
         try {
-
             if (req.cookies.token) {
                 res.render('regi-login/home');
             }
