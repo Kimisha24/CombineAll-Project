@@ -102,16 +102,16 @@ function route(app) {
             console.log(id);
             console.log(key);
             data = await con.promise().query(`select * from users where id=${id}`);
-            let result = data[0][0];
-            // console.log(result);
-            var date = new Date().valueOf();
-            // console.log(date);
-            var newdate = new Date(result.created_time.valueOf());  
-            console.log(newdate);
-            var dateget = date - newdate;
-            //console.log(dateget);
-            var min = Math.floor(dateget/1000);
-            console.log(min);
+            // let result = data[0][0];
+            // // console.log(result);
+            // var date = new Date().valueOf();
+            // // console.log(date);
+            // var newdate = new Date(result.created_time.valueOf());  
+            // console.log(newdate);
+            // var dateget = date - newdate;
+            // //console.log(dateget);
+            // var min = Math.floor(dateget/1000);
+            // console.log(min);
             
             res.render('regi-login/password', { obj: key, result, dateget,min});
 
