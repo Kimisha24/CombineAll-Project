@@ -11,7 +11,7 @@ function route(app) {
         }
     });
 
-    app.post('/submit', async (req, res) => {
+    app.post('/form-submit', async (req, res) => {
 
         var { first_name, last_name, designation, current_add, perment_add, email, phone_no, city, state, zip_code, gender, relationship_status, birth_date } = req.body;
         var { education_type, nameboard, passyear, percentage } = req.body

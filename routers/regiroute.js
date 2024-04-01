@@ -1,4 +1,7 @@
 var con = require('../combinedb');
+var md5 = require('md5');
+const jwt = require('jsonwebtoken');
+
 var citystateroute = require('../routers/citystateroute');
 var alljstask = require('../routers/jstask');
 var pagiwithorder = require('../routers/pagiwithorderroute');
@@ -15,8 +18,7 @@ var csstask1 = require('../routers/csstask1');
 var csstask2 = require('../routers/csstask2');
 var csstask3 = require('../routers/csstask3');
 
-var md5 = require('md5');
-const jwt = require('jsonwebtoken');
+
 
 function route(app) {
     
@@ -102,18 +104,21 @@ function route(app) {
             console.log(id);
             console.log(key);
             data = await con.promise().query(`select * from users where id=${id}`);
-            // let result = data[0][0];
-            // // console.log(result);
+            let result = data[0][0];
+            console.log(result);
+
+            // expired...key
             // var date = new Date().valueOf();
             // // console.log(date);
-            // var newdate = new Date(result.created_time.valueOf());  
+            // var newdate = new Date(result.created_time.valueOf());
             // console.log(newdate);
             // var dateget = date - newdate;
             // //console.log(dateget);
             // var min = Math.floor(dateget/1000);
             // console.log(min);
+            // dateget, min
             
-            res.render('regi-login/password', { obj: key, result, dateget,min});
+            res.render('regi-login/password', { obj: key, result });
 
         } catch (err) {
             console.log(err);
