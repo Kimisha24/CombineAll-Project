@@ -9,7 +9,7 @@ router.post('/submit', regi)
 router.get('/thankyou', thankyou)
 router.get('/password/:key', passkey)
 router.post('/password',password)
-router.get('/list', regilist)
+// router.get('/list', regilist)
 
 router.get('/login', getlog)
 router.post('/login', login)

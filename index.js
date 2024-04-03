@@ -5,7 +5,8 @@ const city_state = require('./routers/city-state-route');
 const js_task = require('./routers/js-task-route');
 const css_task = require('./routers/css-tasks-route');
 const fetch_api = require('./routers/fetch-api-route');
-const col_order = require('./routers/pagination-route');
+const pagination = require('./routers/pagination-route');
+const searching = require('./routers/searching-route');
 
 
 
@@ -22,8 +23,8 @@ app.use('/', city_state)
 app.use('/', js_task)
 app.use('/', css_task)
 app.use('/', fetch_api)
-app.use('/',col_order)
-
+app.use('/', pagination)
+app.use('/', searching)
 
 app.listen(8001);
 console.log('server is running on port 8001..');
