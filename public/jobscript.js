@@ -149,7 +149,7 @@ async function submitdata() {
 
     console.log('data submitted');
 
-    await fetch('http://localhost:8001/submit', {
+    await fetch('http://localhost:8001/form-submit', {
         method: 'post',
         headers: {
             'Content-type': 'application/x-www-form-urlencoded'

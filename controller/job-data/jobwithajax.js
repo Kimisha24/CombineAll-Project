@@ -55,21 +55,21 @@ const postsubmitajax = async (req, res) => {
 
     // insert basic detail..
     var id = 0;
-    let sqldetail = `insert into basic_detail(first_name,last_name,designation,current_add,perment_add,email,phone_no,city,state,zip_code,gender,relationship_status,birth_date) values (?,?,?,?,?,?,?,?,?,?,?,?,?);`
-    let details = await con.promise().query(sqldetail, [first_name, last_name, designation, current_add, perment_add, email, phone_no, city, state, zip_code, gender, relationship_status, birth_date]);
+    var sqldetail = `insert into basic_detail(first_name,last_name,designation,current_add,perment_add,email,phone_no,city,state,zip_code,gender,relationship_status,birth_date) values (?,?,?,?,?,?,?,?,?,?,?,?,?);`
+    var details = await con.promise().query(sqldetail, [first_name, last_name, designation, current_add, perment_add, email, phone_no, city, state, zip_code, gender, relationship_status, birth_date]);
 
     id = details[0].insertId;
     console.log(id);
     console.log(req.body);
 
     // insert education-master..
-    let sqledu = `insert into education_master(id,education_type,Name_board,Passing_year,Percentage) values (?,?,?,?,?);`
+    var sqledu = `insert into education_master(id,education_type,Name_board,Passing_year,Percentage) values (?,?,?,?,?);`
     for (let i = 0; i < education_type.length; i++) {
         await con.promise().query(sqledu, [id, education_type[i], nameboard[i], passyear[i], percentage[i]]);
     }
 
     // insert work-experience
-    let sqlwork = `insert into work_experience (id,company_name,comdesg,from_date,to_date) values (?,?,?,?,?);`
+    var sqlwork = `insert into work_experience (id,company_name,comdesg,from_date,to_date) values (?,?,?,?,?);`
     for (let i = 0; i < company_name.length; i++) {
         await con.promise().query(sqlwork, [id, company_name[i], comdesg[i], from_date[i], to_date[i]]);
     }
@@ -81,11 +81,11 @@ const postsubmitajax = async (req, res) => {
     }
 
     //  insert prefernces
-    let sqlpref = `insert into preferances (id,location,department,notice_period,expacted_ctc,current_ctc) values (?,?,?,?,?,?);`
+    var sqlpref = `insert into preferances (id,location,department,notice_period,expacted_ctc,current_ctc) values (?,?,?,?,?,?);`
     await con.promise().query(sqlpref, [id, location, department, noticeperiod, expactedctc, currentctc]);
 
     // insert language
-    let sqllang = `insert into language_known(id,lang_known,read_,write_,speak_) values (?,?,?,?,?);`
+    var sqllang = `insert into language_known(id,lang_known,read_,write_,speak_) values (?,?,?,?,?);`
     if (hindi) {
         if (r_hindi == 'read') { r_hindi = 1 } else { r_hindi = 0 }
         if (w_hindi == 'write') { w_hindi = 1 } else { w_hindi = 0 }
@@ -106,7 +106,7 @@ const postsubmitajax = async (req, res) => {
     }
 
     // insert technology
-    let sqltech = `insert into technologies (id,tech_lang,tech_level) values (?,?,?);`;
+    var sqltech = `insert into technologies (id,tech_lang,tech_level) values (?,?,?);`;
     if (php) await con.promise().query(sqltech, [id, php, tech_php]);
     if (mysql) await con.promise().query(sqltech, [id, mysql, tech_mysql]);
     if (laravel) await con.promise().query(sqltech, [id, laravel, tech_laravel]);
