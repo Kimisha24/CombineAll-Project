@@ -3,8 +3,8 @@ var con = require('../combinedb');
 function route(app){
    
 app.get('/selector', (req, res) => {
- 
-    res.render('city-state/selector');
+  
+     res.render('city-state/selector');
 });
 
 app.get('/state', async (req, res) => {
