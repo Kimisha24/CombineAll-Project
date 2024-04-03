@@ -26,16 +26,26 @@ const form = (req, res) => {
 
 const regi = async (req, res) => {
     try {
-        console.log(req.body);
         var { first_name, last_name, contact_no, email } = req.body
-        var sql = `insert into users(first_name,last_name,contact_no,email,salt,access_key) values (?,?,?,?,?,?);`
-        data = await con.promise().query(sql, [first_name, last_name, contact_no, email, random(4), random(12)]);
-        id = data[0].insertId;
-        console.log(id);
-        data = await con.promise().query(`select * from users where id = ${id}`);
-        result = data[0][0];
-        // expirekey(data);
-        res.json(result);
+        console.log(req.body);
+
+        sqlemail = `select * from users where email =?`
+        const [emailstore] = await con.promise().query(sqlemail, [email]);
+
+        console.log(emailstore.length);
+
+        if ((emailstore.length === 0)) {
+            var sql = `insert into users(first_name,last_name,contact_no,email,salt,access_key) values (?,?,?,?,?,?);`
+            data = await con.promise().query(sql, [first_name, last_name, contact_no, email, random(4), random(12)]);
+            id = data[0].insertId;
+            console.log(id);
+            data = await con.promise().query(`select * from users where id = ${id}`);
+            result = data[0][0];
+            // expirekey(data);
+            res.json(result);
+        } else {
+            res.json({ message: 0 });
+        }
 
     } catch (err) {
         console.log(err);
