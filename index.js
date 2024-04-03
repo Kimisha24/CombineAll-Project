@@ -1,8 +1,7 @@
 var express = require('express');
 const cookieParser = require('cookie-parser');
-
-var route = require('./routers/regiroute');
-
+const regi_login = require('./routers/regi-login-route');
+const city_state = require('./routers/city-state-route');
 
 var app = express();
 app.use(cookieParser());
@@ -12,7 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 
-route(app);
+app.use('/', regi_login)
+app.use('/',city_state)
 
 
 app.listen(8001);

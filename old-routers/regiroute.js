@@ -185,13 +185,11 @@ function route(app) {
         try {
             var email = req.body.email;
             sql1 = `update users set salt = ?, access_key=? where email=? `;
-            data = await con.promise().query(sql1, [random(4), random(12), email]);
-            
+            data = await con.promise().query(sql1, [random(4), random(12), email]);            
             sqlemail = `select * from users where email = ?`
             data = await con.promise().query(sqlemail, [email]);
             result = data[0][0];
             console.log(result);
-            
             res.render('regi-login/uplink', { result });
         } catch (err) {
             console.log(err);
