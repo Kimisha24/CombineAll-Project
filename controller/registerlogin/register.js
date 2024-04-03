@@ -11,7 +11,7 @@ function random(n) {
     return salt;
 }
 
-const form =  (req, res) => {
+const form = (req, res) => {
     try {
         if (req.cookies.token) {
             res.render('regi-login/home');
@@ -104,4 +104,4 @@ const regilist = (req, res) => {
 }
 
 
-module.exports = { form,regi,thankyou,passkey,regilist,password }
+module.exports = { form, regi, thankyou, passkey, regilist, password }

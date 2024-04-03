@@ -12,4 +12,4 @@ const task3 = (req, res) => {
 }
 
 
-module.exports = {task1,task2,task3}
+module.exports = { task1, task2, task3 }

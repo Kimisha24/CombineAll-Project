@@ -4,7 +4,7 @@ const isvaliduser = require('../middleware/token');
 const router = express.Router();
 
 
-router.get('/dynamictable',isvaliduser,dynamictable)
+router.get('/dynamictable', isvaliduser, dynamictable)
 router.get('/kukucube', isvaliduser, kukucube)
 router.get('/tictactoe', isvaliduser, tictactoe)
 router.get('/jsevent', isvaliduser, jsevent)

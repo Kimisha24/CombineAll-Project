@@ -4,9 +4,9 @@ const { stuviewdetails, stuviewatt, stuexamlist } = require('../controller/stude
 const isvaliduser = require('../middleware/token');
 const router = express.Router();
 
-router.get('/stu_attlist', isvaliduser,stuattendence)
+router.get('/stu_attlist', isvaliduser, stuattendence)
 
-router.get('/stu_exam_list', isvaliduser,stuexamlist)
+router.get('/stu_exam_list', isvaliduser, stuexamlist)
 router.get('/viewdetails', isvaliduser, stuviewdetails)
 router.get('/view_att', isvaliduser, stuviewatt)
 

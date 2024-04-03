@@ -10,7 +10,7 @@ const stuexamlist = (req, res) => {
         // console.log(result[0]);
         res.render('stu-exam-list/stu_exam_list', { result, p });
     })
-}    
+}
 
 const stuviewdetails = (req, res) => {
     let id = req.query.id || 1;

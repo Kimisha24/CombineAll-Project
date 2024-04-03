@@ -18,4 +18,4 @@ const pagiwithorder = (req, res) => {
     })
 }
 
-module.exports = {pagiwithorder}
+module.exports = { pagiwithorder }

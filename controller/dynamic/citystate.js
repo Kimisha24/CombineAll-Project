@@ -5,7 +5,7 @@ const selector = (req, res) => {
         res.render('city-state/selector');
     } catch (err) {
         console.log(err);
-    } 
+    }
 }
 
 const state = async (req, res) => {
@@ -15,7 +15,7 @@ const state = async (req, res) => {
     // console.log(result);
     res.send(result);
 }
-    
+
 const city = async (req, res) => {
     id = req.params.state;
     sql1 = `select * from city_master where state_id = ${id}`;
@@ -26,4 +26,4 @@ const city = async (req, res) => {
 }
 
 
-module.exports={selector,city,state}
+module.exports = { selector, city, state }

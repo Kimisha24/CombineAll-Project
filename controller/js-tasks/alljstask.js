@@ -1,6 +1,6 @@
 const dynamictable = (req, res) => {
     try {
-        res.render('Js-task/dynamictable.ejs') 
+        res.render('Js-task/dynamictable.ejs')
     } catch (error) {
         console.log(error);
     }
@@ -39,4 +39,4 @@ const tictactoe = (req, res) => {
 }
 
 
-module.exports = {dynamictable,tictactoe,kukucube,sort,jsevent}
+module.exports = { dynamictable, tictactoe, kukucube, sort, jsevent }

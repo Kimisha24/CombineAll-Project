@@ -17,4 +17,4 @@ const colorderpagi = (req, res) => {
     })
 }
 
-module.exports = {colorderpagi}
+module.exports = { colorderpagi }

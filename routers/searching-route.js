@@ -4,12 +4,12 @@ const { searchdelimiter, searchstulist } = require('../controller/searching/sear
 const isvaliduser = require('../middleware/token');
 const router = express.Router();
 
-router.get('/searching-col',isvaliduser,getsearchcol)
-router.get('/list', isvaliduser,searchlist)
+router.get('/searching-col', isvaliduser, getsearchcol)
+router.get('/list', isvaliduser, searchlist)
 router.post('/search', isvaliduser, searchcol)
 
 
-router.get('/search-with-delimiter', isvaliduser,searchdelimiter)
-router.get('/studentlist', isvaliduser,searchstulist)
+router.get('/search-with-delimiter', isvaliduser, searchdelimiter)
+router.get('/studentlist', isvaliduser, searchstulist)
 
 module.exports = router;

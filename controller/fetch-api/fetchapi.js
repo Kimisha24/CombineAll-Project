@@ -16,4 +16,4 @@ const details = function (req, res) {
     }
 }
 
-module.exports = {test,details}
+module.exports = { test, details }

@@ -17,4 +17,4 @@ const stuattendence = (req, res) => {
     })
 }
 
-module.exports = {stuattendence}
+module.exports = { stuattendence }

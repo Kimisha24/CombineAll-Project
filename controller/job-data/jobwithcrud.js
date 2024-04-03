@@ -282,5 +282,5 @@ const updateform = async (req, res) => {
 
     res.send('data updated');
 }
-    
+
 module.exports = { getjobform, getform2, formsubmit, editform, updateform }

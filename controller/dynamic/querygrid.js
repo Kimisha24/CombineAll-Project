@@ -35,4 +35,4 @@ const querygrid = (req, res) => {
 }
 
 
-module.exports = {querygrid}
+module.exports = { querygrid }

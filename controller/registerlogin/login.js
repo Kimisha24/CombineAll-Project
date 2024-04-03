@@ -54,10 +54,10 @@ const home = (req, res) => {
 
 const getmail = (req, res) => {
     try {
-        res.render('regi-login/email'); 
+        res.render('regi-login/email');
     } catch (err) {
         console.log(err);
-    }  
+    }
 }
 
 
@@ -77,4 +77,4 @@ const email = async (req, res) => {
 }
 
 
-module.exports = { getlog, login, home,email,getmail }
+module.exports = { getlog, login, home, email, getmail }
