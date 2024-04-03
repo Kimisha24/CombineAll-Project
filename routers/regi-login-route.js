@@ -1,6 +1,6 @@
 var express = require('express');
-const { regi, form, thankyou, passkey, regilist, password } = require('../controller/registercontroller/register');
-const { getlog, login, home, getmail, email } = require('../controller/registercontroller/login');
+const { regi, form, thankyou, passkey, regilist, password } = require('../controller/registerlogin/register');
+const { getlog, login, home, getmail, email } = require('../controller/registerlogin/login');
 const router = express.Router();
 
 
