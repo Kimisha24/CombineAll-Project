@@ -386,14 +386,13 @@
                 <input type="button" value="update" id="update" onclick=" updatedata()">
             </div>
         </div>
+        <p id="message"></p>
     </form>
 
     <div>
         <% var stateb=result['state'] %>
             <% var locb=result4[0]['location'] %>
                 <% var departb=result4[0]['department'] %>
-
-
     </div>
 
     <script>
@@ -420,13 +419,15 @@
 
             console.log('data updated..');
 
-            await fetch("http://localhost:8001/jobwithajax/edit/<%=result.id%>/update", {
+            let data2 = await fetch("http://localhost:8001/jobwithajax/edit/<%=result.id%>/update", {
                 method: 'post',
                 headers: {
                     'Content-type': 'application/x-www-form-urlencoded'
                 },
                 body: jobdata
-            });
+            })
+            result = await data2.json();
+            document.getElementById('message').innerHTML = result.msg;
         }
 
     </script>

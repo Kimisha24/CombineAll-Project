@@ -111,6 +111,8 @@ const postsubmitajax = async (req, res) => {
     if (mysql) await con.promise().query(sqltech, [id, mysql, tech_mysql]);
     if (laravel) await con.promise().query(sqltech, [id, laravel, tech_laravel]);
     if (oracle) await con.promise().query(sqltech, [id, oracle, tech_oracle]);
+
+    res.json({ msg: "Your form was submitted" })
 }
 
 const editformajax = async (req, res) => {
@@ -261,7 +263,7 @@ const updateajaxform = async (req, res) => {
     if (laravel) await con.promise().query(updatetech, [laravel, tech_laravel, tech_id[2]]);
     if (oracle) await con.promise().query(updatetech, [oracle, tech_oracle, tech_id[3]]);
 
-    res.send('data updated');
+    res.json({ msg: 'data updated' });
 }
 
 module.exports = { getjobformajax, postsubmitajax, editformajax, updateajaxform }

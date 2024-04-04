@@ -147,18 +147,15 @@ async function submitdata() {
     const jobdata = await new Response(params).text();
     // console.log(typeof (jobdata));
 
-    console.log('data submitted');
-
-    await fetch('http://localhost:8001/form-submit', {
+    const data2 = await fetch('http://localhost:8001/form-submit', {
         method: 'post',
         headers: {
             'Content-type': 'application/x-www-form-urlencoded'
         },
         body: jobdata
     })
-
-    // document.getElementById('message').innerHTML = 'Your form was submitted';
-
+    result = await data2.json();
+    document.getElementById('message').innerHTML = result.msg;
 }
 
 
