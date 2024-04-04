@@ -30,9 +30,9 @@ const regi = async (req, res) => {
         console.log(req.body);
 
         sqlemail = `select * from users where email =?`
-        const [emailstore] = await con.promise().query(sqlemail, [email]);
+        const emailstore = await con.promise().query(sqlemail, [email]);
 
-        console.log(emailstore.length);
+        // console.log(emailstore.length);
 
         if ((emailstore.length === 0)) {
             var sql = `insert into users(first_name,last_name,contact_no,email,salt,access_key) values (?,?,?,?,?,?);`

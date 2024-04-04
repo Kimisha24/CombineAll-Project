@@ -157,6 +157,8 @@ async function submitdata() {
         body: jobdata
     })
 
+    // document.getElementById('message').innerHTML = 'Your form was submitted';
+
 }
 
 

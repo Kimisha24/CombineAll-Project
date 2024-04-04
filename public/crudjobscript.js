@@ -199,11 +199,18 @@ function validatedata() {
 
     var hindi = document.querySelectorAll('input[name="hindi"]:checked');
     document.getElementById('errlang').innerHTML = '';
+
     if (hindi.length === 0) {
         errlang.innerHTML = 'select any option';
+        var op1 = document.getElementById('op1');
+        document.getElementById('errop1').innerHTML = '';
+        if (op1.length === 0) {
+            errop1.innerHTML = 'select any option';
+            isvalid = false;
+        }
         isvalid = false;
     }
-    // else if ()
+
 
 
 

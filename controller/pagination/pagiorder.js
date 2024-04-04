@@ -14,7 +14,6 @@ const pagiwithorder = (req, res) => {
     con.query(query, (err, result) => {
         if (err) throw err;
         res.render('pagi-with-order/list', { data: result, page, order });
-
     })
 }
 

@@ -108,7 +108,6 @@
             let formdata = document.getElementById('loginform');
             let data = new FormData(formdata);
             const params = new URLSearchParams(data);
-
             const jobdata = await new Response(params).text();
 
             console.log('welcome');

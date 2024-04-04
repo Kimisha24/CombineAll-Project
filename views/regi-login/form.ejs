@@ -123,8 +123,6 @@
                 let data = new FormData(formdata);
                 const jobdata = new URLSearchParams(data);
 
-                console.log('data submitted');
-
                 let result = await fetch('http://localhost:8001/submit', {
                     method: 'post',
                     headers: {
@@ -133,12 +131,11 @@
                     body: jobdata
                 })
                 result = await result.json();
-                // console.log("Registration complete");
                 return result;
             }
 
             let result = await getdata();
-
+            console.log('registration completed')
             if (result.message === 0) {
                 // console.log("User Already Exists");
                 document.getElementById("error-1").style.display = "block";

@@ -18,12 +18,12 @@
             border: 1px solid black;
         }
 
-        .x {
+        .X {
             color: red;
             font-size: 50px;
         }
 
-        .o {
+        .O {
             color: red;
             font-size: 50px;
         }
@@ -79,23 +79,23 @@
         ];
 
         for (let i = 1; i <= 9; i++) {
-            // Whenever a player clicks on a cell
+            //  player clicks on a cell
             document.getElementById(i.toString()).addEventListener(
                 "click",
                 function () {
                     if (this.innerHTML === "" && !gameEnded) {
-                        // Display either "X" or "O" in the cell, and style it
+                        // Display "X" or "O" in the cell, and style it 
                         this.innerHTML = playerSymbol;
-                        this.classList.add(playerSymbol.toLowerCase());
+                        this.classList.add(playerSymbol);
 
-                        // Check if a player has won
                         checkWin();
-
                         // Swap the symbol to the other one for the next turn
                         if (playerSymbol === "X")
                             playerSymbol = "O"
                         else
                             playerSymbol = "X"
+
+
                     }
                 }
             );
@@ -126,7 +126,6 @@
                     document.getElementById(i.toString()).classList.remove("x");
                     document.getElementById(i.toString()).classList.remove("win");
                     gameEnded = false;
-
                 }
             }
         );

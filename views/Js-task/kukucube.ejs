@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>table colour with adding row column</title>
-  
+
     <style>
         body {
             background-color: rgb(229, 240, 240);
@@ -54,30 +54,6 @@
 
     <script>
 
-        var count = 10;
-        timer = setInterval(function () {
-            if (count <= 0) {
-                clearInterval(timer);
-                document.getElementById("time").innerHTML = "finished";
-                document.getElementsByTagName("body")[0].innerHTML = `<h2 style=" margin:300px 0 0 500px"> your score is : ${value} </h2>`
-                const button = document.createElement("button");
-                alert("your game is over");
-                button.innerHTML = "Play Again";
-                button.style.fontSize = "20px";
-                button.style.margin = "15px 0 0 550px";
-                button.addEventListener("click", function () {
-                    window.location.reload();
-                })
-                document.body.appendChild(button);
-
-            }
-            else {
-                document.getElementById("count").innerHTML = count + " : Time ";
-            }
-            count--;
-        }, 1000)
-
-
         function rndcolour() {
             let red = Math.floor(Math.random() * (255 + 1));
             let green = Math.floor(Math.random() * (255 + 1));
@@ -91,7 +67,7 @@
             tr = table[0].getElementsByTagName("tr");
             td = document.querySelectorAll("td");
 
-            var randomvalue = Math.floor(Math.random() * ((td.length - 1 + 0) + 0));
+            var randomvalue = Math.floor(Math.random() * ((td.length - 1)));
             // console.log(randomvalue + "Random Value");
 
             const r = rndcolour().red;
@@ -142,6 +118,31 @@
                 table[0].lastChild.appendChild(document.createElement("td"));
             }
         }
+
+
+        var count = 10;
+        timer = setInterval(function () {
+            if (count <= 0) {
+                clearInterval(timer);
+                document.getElementById("time").innerHTML = "finished";
+                document.getElementsByTagName("body")[0].innerHTML = `<h2 style=" margin:300px 0 0 500px"> your score is : ${value} </h2>`
+                const button = document.createElement("button");
+                alert("your game is over");
+                button.innerHTML = "Play Again";
+                button.style.fontSize = "20px";
+                button.style.margin = "15px 0 0 550px";
+                button.addEventListener("click", function () {
+                    window.location.reload();
+                })
+                document.body.appendChild(button);
+            }
+            else {
+                document.getElementById("count").innerHTML = " Time :" + count;
+            }
+            count--;
+        }, 1000)
+
+
 
     </script>
 
