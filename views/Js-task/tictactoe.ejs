@@ -24,11 +24,17 @@
         }
 
         td {
-            height: 50px;
-            width: 50px;
+            height: 70px;
+            width: 60px;
             text-align: center;
             border: 1px solid black;
-            font-size: 25px;
+            font-size: 30px;
+            background-color: #a191bd;
+        }
+
+        input {
+            font-size: 18px;
+            padding: 7px;
         }
     </style>
 
@@ -62,9 +68,7 @@
         table = document.getElementsByTagName('table');
         td = table[0].getElementsByTagName('td');
 
-
         for (let i = 0; i < td.length; i++) {
-            console.log(td[i]);
             td[i].addEventListener('click',
                 function () {
                     if (turn === 'O') {

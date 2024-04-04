@@ -12,20 +12,18 @@ const searchdelimiter = (req, res) => {
 const searchstulist = (req, res) => {
     try {
 
-        let sql = ` select *, date_format(birth_date,"%d/%m/%Y") as birth_date  from stu_tables`;
+        let sql = ` select *, date_format(birth_date,"%d/%m/%Y") as birth_date from stu_tables`;
         const search = req.query.search;
         var array = [];
         var current = '';
 
         if (req.query.search) {
             for (let i = 0; i < search.length; i++) {
-
                 if (search[i] == '_' || search[i] == '^' || search[i] == '$' || search[i] == '#' || search[i] == ':') {
                     if (current != '') {
                         array.push(current);
                         current = '';
                     }
-
                     current += search[i];
                 } else {
                     current += search[i];
@@ -71,7 +69,6 @@ const searchstulist = (req, res) => {
     }
 
 }
-
 
 
 module.exports = { searchdelimiter, searchstulist }
