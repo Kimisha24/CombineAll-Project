@@ -1,8 +1,6 @@
 
 
 function validatedata() {
-
-
     // ..............................................basic details ........................................................
 
     var first_name = document.getElementById('first_name').value;
@@ -122,138 +120,94 @@ function validatedata() {
 
     // ............................................................. education...........................................
 
-    // var sscboard = document.getElementById('sscboard').value;
-    // document.getElementById('errssc').innerHTML = '';
-    // if (sscboard == '') {
-    //     errssc.innerHTML = 'field is require';
+    var education_type = document.getElementById('education_type').value;
+    document.getElementById('erredutype').innerHTML = '';
+    if (education_type === '') {
+        erredutype.innerHTML = 'enter your education-type';
+        isvalid = false;
+    }
+
+
+    var nameboard = document.getElementById('nameboard').value;
+    document.getElementById('errboard').innerHTML = '';
+    if (nameboard == '') {
+        errboard.innerHTML = 'field is require';
+        isvalid = false;
+    }
+
+    var passyear = document.getElementById('passyear').value;
+    document.getElementById('erryear').innerHTML = '';
+    if (passyear == '') {
+        erryear.innerHTML = 'field is require';
+        isvalid = false;
+    } else if (!/^\d{4}$/.test(passyear)) {
+        erryear.innerHTML = 'enter your valid year';
+        isvalid = false;
+    }
+
+    var percentage = document.getElementById('percentage').value;
+    document.getElementById('errpertage').innerHTML = '';
+    if (percentage == '') {
+        errpertage.innerHTML = 'field is require';
+        isvalid = false;
+    }
+    // else if (!/^100(\.(0){0,2})?$|^([1-9]?[0-9])(\.(\d{0,2}))?\%$/.test('percentage')) {
+    //     errpertage.innerHTML = 'input valid detail';
     //     isvalid = false;
     // }
 
-    // var sscpy = document.getElementById('sscpy').value;
-    // document.getElementById('errsscpy').innerHTML = '';
-    // if (sscpy == '') {
-    //     errsscpy.innerHTML = 'field is require';
-    //     isvalid = false;
-    // } else if (!/^\d{4}$/.test(sscpy)) {
-    //     errsscpy.innerHTML = 'enter your valid year';
-    //     isvalid = false;
-    // }
-
-    // var sscpercentage = document.getElementById('sscpercentage').value;
-    // document.getElementById('sscpercentage').innerHTML = '';
-    // if (sscpercentage == '') {
-    //     errsscper.innerHTML = 'field is require';
-    //     isvalid = false;
-    // } else if (!/^100(\.(0){0,2})?$|^([1-9]?[0-9])(\.(\d{0,2}))?\%$/.test('sscpercentage')) {
-    //     errsscper.innerHTML = 'input valid detail';
-    //     isvalid = false;
-    // }
-
-
-    // var hscboard = document.getElementById('hscboard').value;
-    // document.getElementById('errhsc').innerHTML = '';
-    // if (hscboard == '') {
-    //     errhsc.innerHTML = 'field is require';
-    //     isvalid = false;
-    // }
-
-    // var hscpy = document.getElementById('hscpy').value;
-    // document.getElementById('hscpy').innerHTML = '';
-    // if (hscpy == '') {
-    //     errhscpy.innerHTML = 'field is require';
-    //     isvalid = false;
-    // } else if (!/^\d{4}$/.test(hscpy)) {
-    //     errhscpy.innerHTML = 'enter your valid year';
-    //     isvalid = false;
-    // }
-
-    // var twelveper = document.getElementById('twelveper').value;
-    // document.getElementById('errtweleve').innerHTML = '';
-    // if (twelveper == '') {
-    //     errtweleve.innerHTML = 'field is require';
-    //     isvalid = false;
-    // } else if (!/^100(\.(0){0,2})?$|^([1-9]?[0-9])(\.(\d{0,2}))?\%$/.test('twelveper')) {
-    //     errtweleve.innerHTML = 'input valid detail';
-    //     isvalid = false;
-    // }
-
-
-
-    // var becourse = document.getElementById('becourse').value;
-    // document.getElementById('errbe').innerHTML = '';
-    // if (becourse == '') {
-    //     errbe.innerHTML = 'field is require';
-    //     isvalid = false;
-    // }
-
-    // var beuni = document.getElementById('beuni').value;
-    // document.getElementById('errbeuni').innerHTML = '';
-    // if (beuni == '') {
-    //     errbeuni.innerHTML = 'field is require';
-    //     isvalid = false;
-    // }
-
-
-    // var bepassy = document.getElementById('bepassy').value;
-    // document.getElementById('errbepy').innerHTML = '';
-    // if (bepassy == '') {
-    //     errbepy.innerHTML = 'field is require';
-    //     isvalid = false;
-    // } else if (!/^\d{4}$/.test(bepassy)) {
-    //     errbepy.innerHTML = 'enter your valid year';
-    //     isvalid = false;
-    // }
-
-
-    // var beper = document.getElementById('beper').value;
-    // document.getElementById('errhscper').innerHTML = '';
-    // if (beper == '') {
-    //     errbeper.innerHTML = 'field is require';
-    //     isvalid = false;
-    // } else if (!/^100(\.(0){0,2})?$|^([1-9]?[0-9])(\.(\d{0,2}))?\%$/.test('beper')) {
-    //     errbeper.innerHTML = 'input valid detail';
-    //     isvalid = false;
-    // }
 
     // ........................................ work experiance .............................
 
-    // var companyname = document.getElementById('companyname').value;
-    // document.getElementById('errcompany').innerHTML = '';
-    // if (companyname == '') {
-    //     errcompany.innerHTML = 'field is require';
-    //     isvalid = false;
-    // }
+    var company_name = document.getElementById('company_name').value;
+    document.getElementById('errcompany').innerHTML = '';
+    if (company_name == '') {
+        errcompany.innerHTML = 'field is require';
+        isvalid = false;
+    }
 
-    // var comdesg = document.getElementById('comdesg').value;
-    // document.getElementById('errcomdesg').innerHTML = '';
-    // if (comdesg == '') {
-    //     errcomdesg.innerHTML = 'field is require';
-    //     isvalid = false;
-    // }
+    var comdesg = document.getElementById('comdesg').value;
+    document.getElementById('errcodesg').innerHTML = '';
+    if (comdesg == '') {
+        errcodesg.innerHTML = 'field is require';
+        isvalid = false;
+    }
 
 
-    // var from = document.getElementById('from').value;
-    // document.getElementById('errfrom').innerHTML = '';
-    // if (from === '') {
-    //     errfrom.innerHTML = 'date is required';
-    //     isvalid = false;
-    // } else if (!/^\d{4}-\d{2}-\d{2}$/.test(from)) {
-    //     errfrom.innerHTML = 'enter your valid date';
-    //     isvalid = false;
-    // }
+    var from_date = document.getElementById('from_date').value;
+    document.getElementById('errfrom').innerHTML = '';
+    if (from_date === '') {
+        errfrom.innerHTML = 'date is required';
+        isvalid = false;
+    } else if (!/^\d{4}-\d{2}-\d{2}$/.test(from_date)) {
+        errfrom.innerHTML = 'enter your valid date';
+        isvalid = false;
+    }
 
-    // var to = document.getElementById('to').value;
-    // document.getElementById('errto').innerHTML = '';
-    // if (to === '') {
-    //     errto.innerHTML = 'date is required';
-    //     isvalid = false;
-    // } else if (!/^\d{4}-\d{2}-\d{2}$/.test(to)) {
-    //     errto.innerHTML = 'enter your valid date';
-    //     isvalid = false;
-    // }
+    var to_date = document.getElementById('to_date').value;
+    document.getElementById('errto').innerHTML = '';
+    if (to_date === '') {
+        errto.innerHTML = 'date is required';
+        isvalid = false;
+    } else if (!/^\d{4}-\d{2}-\d{2}$/.test(to_date)) {
+        errto.innerHTML = 'enter your valid date';
+        isvalid = false;
+    }
 
 
     // ...................................... language known .............................
+
+    var hindi = document.querySelectorAll('input[name="hindi"]:checked');
+    document.getElementById('errlang').innerHTML = '';
+    if (hindi.length === 0) {
+        errlang.innerHTML = 'select any option';
+        isvalid = false;
+    }
+    // else if ()
+
+
+
+
 
     // var op1 = document.querySelectorAll('input[name="op1"]:checked');
     // document.getElementById('errop1').innerHTML = '';
@@ -291,47 +245,45 @@ function validatedata() {
     // .............................................refernce contact ................................
 
 
-    // var refname = document.getElementById('refname').value;
-    // document.getElementById('errref').innerHTML = '';
-    // if (refname === '') {
-    //     errref.innerHTML = 'field is require';
-    //     isvalid = false;
-    // }
+    var refname = document.getElementById('refname').value;
+    document.getElementById('errref').innerHTML = '';
+    if (refname === '') {
+        errref.innerHTML = 'field is require';
+        isvalid = false;
+    }
 
 
-    // var refno = document.getElementById('refno').value;
-    // document.getElementById('errnum').innerHTML = '';
-    // if (refno === '') {
-    //     errnum.innerHTML = 'field is require';
-    //     isvalid = false;
-    // }
+    var refno = document.getElementById('refno').value;
+    document.getElementById('errnum').innerHTML = '';
+    if (refno === '') {
+        errnum.innerHTML = 'field is require';
+        isvalid = false;
+    }
 
-    // var refrelation = document.getElementById('refrelation').value;
-    // document.getElementById('errel').innerHTML = '';
-    // if (refrelation === '') {
-    //     errel.innerHTML = 'field is require';
-    //     isvalid = false;
-    // }
-
-
+    var refrelation = document.getElementById('refrelation').value;
+    document.getElementById('errel').innerHTML = '';
+    if (refrelation === '') {
+        errel.innerHTML = 'field is require';
+        isvalid = false;
+    }
 
     // ...........................................................prefernces.................................
 
 
-    // var location = document.getElementById('location').value;
-    // document.getElementById('errloc').innerHTML = '';
-    // if (location === '') {
-    //     errloc.innerHTML = 'select any one';
-    //     isvalid = false;
-    // }
+    var location = document.getElementById('location').value;
+    document.getElementById('errloc').innerHTML = '';
+    if (location === '') {
+        errloc.innerHTML = 'select any one';
+        isvalid = false;
+    }
 
 
-    // var department = document.getElementById('department').value;
-    // document.getElementById('errdep').innerHTML = '';
-    // if (department === '') {
-    //     errdep.innerHTML = 'select any one';
-    //     isvalid = false;
-    // }
+    var department = document.getElementById('department').value;
+    document.getElementById('errdep').innerHTML = '';
+    if (department === '') {
+        errdep.innerHTML = 'select any one';
+        isvalid = false;
+    }
 
 
     return isvalid;
@@ -408,6 +360,7 @@ function plusedu() {
         `<div class="education">
                           <label for="etype">education:</label>
                         <select name="education_type[]" id="education_type">
+                             <option value="">Select One</option>
                             <option value="ssc" name="ssc[]">ssc</option>
                             <option value="hsc" name="hsc[]">hsc</option>
                             <option value="bachelor" name="bachelor[]">bachelor</option>

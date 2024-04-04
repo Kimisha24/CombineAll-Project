@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>update data form</title>
     <style>
-     
         .btn {
             margin-top: 20px;
             display: flex;
@@ -128,10 +127,14 @@
                                 value="<%=result1[i].length!=0 && result1[i].edu_id %>">
                             <label for="etype">education:</label>
                             <select name="education_type[]" id="education_type">
-                                <option value="ssc" name="ssc[]" <%=result1[i].education_type==='ssc' ?'selected':''%>>ssc</option>
-                                <option value="hsc" name="hsc[]" <%=result1[i].education_type==='hsc' ?'selected':''%>>hsc </option>
-                                <option value="bachelor" name="bachelor[]" <%=result1[i].education_type==='bachelor'?'selected':''%>>bachelor</option>
-                                <option value="master" name="master[]" <%=result1[i].education_type==='master'?'selected':''%>>master</option>
+                                <option value="ssc" name="ssc[]" <%=result1[i].education_type==='ssc' ?'selected':''%>
+                                    >ssc</option>
+                                <option value="hsc" name="hsc[]" <%=result1[i].education_type==='hsc' ?'selected':''%>
+                                    >hsc </option>
+                                <option value="bachelor" name="bachelor[]" <%=result1[i].education_type==='bachelor'
+                                    ?'selected':''%>>bachelor</option>
+                                <option value="master" name="master[]" <%=result1[i].education_type==='master'
+                                    ?'selected':''%>>master</option>
                             </select>
                             <label for="nameboard"> Name of board :</label>
                             <input type="text" name="nameboard[]" id="nameboard" value="<%=result1[i].Name_board %>" />

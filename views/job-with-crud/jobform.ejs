@@ -118,17 +118,18 @@
             <span id="errdob"></span> <br> <br>
         </fieldset>
         <br><br>
-        
-  
+
+
         <fieldset>
             <legend>education details</legend>
-    
+
             <input type="button" value="Add" id="plus" onclick="plusedu()">
             <input type="button" value="Remove" id="minus" onclick="minusedu()">
             <div class="edurow">
                 <div class="education">
                     <label for="etype">education:</label>
                     <select name="education_type[]" id="education_type">
+                        <option value="">Select One</option>
                         <option value="ssc" name="ssc[]">ssc</option>
                         <option value="hsc" name="hsc[]">hsc</option>
                         <option value="bachelor" name="bachelor[]">bachelor</option>
@@ -138,11 +139,11 @@
                     <label for="nameboard"> Name of board :</label>
                     <input type="text" name="nameboard[]" id="nameboard" />
                     <span id="errboard"></span>
-    
+
                     <label for="passyear"> Passing year :</label>
                     <input type="text" name="passyear[]" id="passyear" />
                     <span id="erryear"></span>
-    
+
                     <label for="percentage"> Percentage :</label>
                     <input type="text" name="percentage[]" id="percentage" />
                     <span id="errpertage"></span> <br> <br>
@@ -164,7 +165,7 @@
                     <span id="errcompany"></span>
                     <label for="comdesg"> Designation: </label>
                     <input type="text" name="comdesg[]" id="comdesg" />
-                    <span id="errcomdesg"></span>
+                    <span id="errcodesg"></span>
                     <label for="from_date">From :</label>
                     <input type="text" id="from_date" name="from_date[]" />
                     <span id="errfrom"></span>
@@ -183,13 +184,13 @@
                     <legend>language known</legend>
                     <input type="checkbox" id="hindi" name="hindi" value="hindi">
                     <label for="hindi"> Hindi</label>
+                    <span id="errlang"></span>
                     <input type="checkbox" id="op1" name="r_hindi" value="read">
                     <label for="op1"> Read</label>
                     <input type="checkbox" id="op2" name="w_hindi" value="write">
                     <label for="op2"> Write</label>
                     <input type="checkbox" id="op3" name="s_hindi" value="speak">
                     <label for="op3"> Speak</label>
-                    <span id="errlang"></span>
                     <span id="errop1"></span>
                     <br><br>
 
@@ -278,14 +279,6 @@
                     <span id="errel"></span><br><br>
                 </div>
             </div>
-
-            <!-- 
-            <label for="name"> Name : </label>
-            <input type="text" name="name" id="name" />
-            <label for="contactno"> Contact no: </label>
-            <input type="text" name="contactno" id="contactno" />
-            <label for="relation"> Relation: </label>
-            <input type="text" name="relation" id="relation" /> -->
         </fieldset>
         <br><br>
 
@@ -351,15 +344,13 @@
         <div class="btn">
             <input type="submit" value="submit ">
             <input type="reset" value="reset">
-          
+
         </div>
-       
+
 
     </form>
 
     <script src="/crudjobscript.js"></script>
-
-
 
 
 </body>

@@ -178,7 +178,6 @@ function validatedata() {
     var last_name = document.getElementById('last_name').value;
     document.getElementById('errlname').innerHTML = '';
     if (last_name === '') {
-
         errlname.innerHTML = 'name is required*';
         return false;
     }
@@ -278,26 +277,26 @@ function validatedata() {
         return false;
     }
 
-    //................. for education ......................
+    // //................. for education ......................
 
     // var education_type = document.getElementById('education_type').value;
     // document.getElementById('erredutype').innerHTML = '';
     // if (education_type === '') {
-    //     erredutype.innerHTML = 'field is require';
+    //     erredutype.innerHTML = 'enter your education-type';
     //     return false;
     // }
-    // console.log(education_type);
+
 
     // var nameboard = document.getElementById('nameboard').value;
     // document.getElementById('errboard').innerHTML = '';
-    // if (nameboard === '') {
+    // if (nameboard == '') {
     //     errboard.innerHTML = 'field is require';
     //     return false;
     // }
 
     // var passyear = document.getElementById('passyear').value;
     // document.getElementById('erryear').innerHTML = '';
-    // if (passyear === '') {
+    // if (passyear == '') {
     //     erryear.innerHTML = 'field is require';
     //     return false;
     // } else if (!/^\d{4}$/.test(passyear)) {
@@ -307,17 +306,52 @@ function validatedata() {
 
     // var percentage = document.getElementById('percentage').value;
     // document.getElementById('errpertage').innerHTML = '';
-    // if (percentage === '') {
+    // if (percentage == '') {
     //     errpertage.innerHTML = 'field is require';
     //     return false;
     // }
-    // else if (!/^100(\.(0){0,2})?$|^([1-9]?[0-9])(\.(\d{0,2}))?\%$/.test('percentage')) {
-    //     errpertage.innerHTML = 'input valid detail';
-    //     isvalid = false;
+    // // else if (!/^100(\.(0){0,2})?$|^([1-9]?[0-9])(\.(\d{0,2}))?\%$/.test('percentage')) {
+    // //     errpertage.innerHTML = 'input valid detail';
+    // //     return false;
+    // // }
+
+
+    // // ........................................ work experiance .............................
+
+    // var company_name = document.getElementById('company_name').value;
+    // document.getElementById('errcompany').innerHTML = '';
+    // if (company_name == '') {
+    //     errcompany.innerHTML = 'field is require';
+    //     return false;
+    // }
+
+    // var comdesg = document.getElementById('comdesg').value;
+    // document.getElementById('errcodesg').innerHTML = '';
+    // if (comdesg == '') {
+    //     errcodesg.innerHTML = 'field is require';
+    //     return false;
     // }
 
 
-    // .............................................refernce contact ................................
+    // var from_date = document.getElementById('from_date').value;
+    // document.getElementById('errfrom').innerHTML = '';
+    // if (from_date === '') {
+    //     errfrom.innerHTML = 'date is required';
+    //     return false;
+    // } else if (!/^\d{4}-\d{2}-\d{2}$/.test(from_date)) {
+    //     errfrom.innerHTML = 'enter your valid date';
+    //     return false;
+    // }
+
+    // var to_date = document.getElementById('to_date').value;
+    // document.getElementById('errto').innerHTML = '';
+    // if (to_date === '') {
+    //     errto.innerHTML = 'date is required';
+    //     return false;
+    // } else if (!/^\d{4}-\d{2}-\d{2}$/.test(to_date)) {
+    //     errto.innerHTML = 'enter your valid date';
+    //     return false;
+    // }
 
 
     // var refname = document.getElementById('refname').value;
@@ -339,7 +373,25 @@ function validatedata() {
     // document.getElementById('errel').innerHTML = '';
     // if (refrelation === '') {
     //     errel.innerHTML = 'field is require';
-    //    return false;
+    //     return false;
+    // }
+
+    // // ...........................................................prefernces.................................
+
+
+    // var location = document.getElementById('location').value;
+    // document.getElementById('errloc').innerHTML = '';
+    // if (location === '') {
+    //     errloc.innerHTML = 'select any one';
+    //     return false;
+    // }
+
+
+    // var department = document.getElementById('department').value;
+    // document.getElementById('errdep').innerHTML = '';
+    // if (department === '') {
+    //     errdep.innerHTML = 'select any one';
+    //     return false;
     // }
 
     return true;
