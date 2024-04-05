@@ -60,7 +60,6 @@ const getmail = (req, res) => {
     }
 }
 
-
 const email = async (req, res) => {
     try {
         var email = req.body.email;

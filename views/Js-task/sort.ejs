@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting</title>
     <style>
-        body{
+        body {
             text-align: center;
         }
     </style>
@@ -18,16 +18,16 @@
     <h2>sorting number</h2>
     <div>
         <label for="sort"> Input array: </label>
-        <input type="text" name="sort" id="sort" size="25" placeholder="add numbers by (,)"/> <br> <br>
-    
+        <input type="text" name="sort" id="sort" size="25" placeholder="add numbers by (,)" /> <br> <br>
+
         <button id="sorting" onclick="Bubblesort()">Bubble Sort</button>
-    
+
         <!-- <button id="sorting" onclick="insertionsort()">insertion Sort</button><br><br> -->
-    
-    
+
+
         <p id="allsort"></p>
-    
-    
+
+
         <!-- <label for="sort"> Output array: </label> -->
     </div>
 
@@ -68,7 +68,6 @@
                         var data = array[j]
                         array[j] = array[j + 1]
                         array[j + 1] = data
-
                     }
                 }
             }

@@ -40,7 +40,6 @@
     <h3>Score : <span id="score"></span></h3>
     <h3 id="time"> <span id="count"></span></h3>
     <table>
-
         <tr>
             <td></td>
             <td></td>
@@ -49,7 +48,6 @@
             <td></td>
             <td></td>
         </tr>
-
     </table>
 
     <script>
@@ -67,20 +65,18 @@
             tr = table[0].getElementsByTagName("tr");
             td = document.querySelectorAll("td");
 
-            var randomvalue = Math.floor(Math.random() * ((td.length - 1)));
+            var randomvalue = Math.floor(Math.random() * (td.length - 1));
             // console.log(randomvalue + "Random Value");
 
             const r = rndcolour().red;
-            // console.log(r);
             const g = rndcolour().green;
-            // console.log(g);
             const b = rndcolour().blue;
-            // console.log(b);
+
 
             for (let i = 0; i < td.length; i++) {
                 if (i == randomvalue) {
                     td[i].style.backgroundColor = " rgba(" + r + ", " + g + ", " + b + ")";
-                    td[i].style.opacity = "0.5";
+                    td[i].style.opacity = "0.7";
                 } else {
                     td[i].style.backgroundColor = " rgba(" + r + ", " + g + ", " + b + ")";
                     td[i].style.opacity = "1";
@@ -89,8 +85,6 @@
             }
             td[randomvalue].addEventListener("click", addrowcolplus);
         }
-
-
 
         var value = 0;
         function addrowcolplus() {
