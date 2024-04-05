@@ -110,6 +110,7 @@ function plusedu() {
         `<div class="education">
                           <label for="etype">education:</label>
                         <select name="education_type[]" id="education_type">
+                            <option value="">Select</option>
                             <option value="ssc" name="ssc[]">ssc</option>
                             <option value="hsc" name="hsc[]">hsc</option>
                             <option value="bachelor" name="bachelor[]">bachelor</option>
