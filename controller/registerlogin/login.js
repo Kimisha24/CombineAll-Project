@@ -76,5 +76,9 @@ const email = async (req, res) => {
     }
 }
 
+const logout = (req, res) => {
+    res.clearCookie('token');
+    res.redirect('/login');
+}
 
-module.exports = { getlog, login, home, email, getmail }
+module.exports = { getlog, login, home, email, getmail, logout }
