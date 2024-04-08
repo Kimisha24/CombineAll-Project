@@ -34,7 +34,7 @@ const regi = async (req, res) => {
 
         // console.log(emailstore.length);
 
-        if ((emailstore.length === 0)) {
+        if ((emailstore[0].length === 0)) {
             var sql = `insert into users(first_name,last_name,contact_no,email,salt,access_key) values (?,?,?,?,?,?);`
             data = await con.promise().query(sql, [first_name, last_name, contact_no, email, random(4), random(12)]);
             id = data[0].insertId;
