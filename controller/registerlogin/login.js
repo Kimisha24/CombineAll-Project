@@ -21,7 +21,7 @@ const getlog = (req, res) => {
 
 const login = async (req, res) => {
     try {
-        var { email, password } = req.body;
+        let { email, password } = req.body;
         console.log(email, password);
         sql = `select * from users where email = ?`;
         data = await con.promise().query(sql, [email]);
@@ -32,7 +32,7 @@ const login = async (req, res) => {
         } else {
             md5pas = md5(password + result.salt);
             if (result.pass_word === md5pas) {
-                var token = jwt.sign({ email }, `logintoken`, { expiresIn: '1h' });
+                let token = jwt.sign({ email }, `logintoken`, { expiresIn: '1h' });
                 res.cookie('token', token, { expires: new Date(Date.now() + 900000), httpOnly: true });
                 res.json({ msg: 'welcome' });
             } else {
@@ -62,7 +62,7 @@ const getmail = (req, res) => {
 
 const email = async (req, res) => {
     try {
-        var email = req.body.email;
+        let email = req.body.email;
         sql1 = `update users set salt = ?, access_key=? where email=? `;
         data = await con.promise().query(sql1, [random(4), random(12), email]);
         sqlemail = `select * from users where email = ?`

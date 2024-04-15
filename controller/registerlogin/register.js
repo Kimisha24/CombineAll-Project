@@ -26,7 +26,7 @@ const form = (req, res) => {
 
 const regi = async (req, res) => {
     try {
-        var { first_name, last_name, contact_no, email } = req.body
+        let { first_name, last_name, contact_no, email } = req.body
         console.log(req.body);
 
         sqlemail = `select * from users where email =?`
@@ -35,7 +35,7 @@ const regi = async (req, res) => {
         // console.log(emailstore.length);
 
         if ((emailstore[0].length === 0)) {
-            var sql = `insert into users(first_name,last_name,contact_no,email,salt,access_key) values (?,?,?,?,?,?);`
+            let sql = `insert into users(first_name,last_name,contact_no,email,salt,access_key) values (?,?,?,?,?,?);`
             data = await con.promise().query(sql, [first_name, last_name, contact_no, email, random(4), random(12)]);
             id = data[0].insertId;
             console.log(id);
@@ -70,13 +70,13 @@ const passkey = async (req, res) => {
         let result = data[0][0];
         console.log(result);
         // expired...key
-        // var date = new Date().valueOf();
+        // let date = new Date().valueOf();
         // // console.log(date);
-        // var newdate = new Date(result.created_time.valueOf());
+        // let newdate = new Date(result.created_time.valueOf());
         // console.log(newdate);
-        // var dateget = date - newdate;
+        // let dateget = date - newdate;
         // //console.log(dateget);
-        // var min = Math.floor(dateget/1000);
+        // let min = Math.floor(dateget/1000);
         // console.log(min);
         // dateget, min
         res.render('regi-login/password', { obj: key, result });
@@ -88,13 +88,13 @@ const passkey = async (req, res) => {
 
 const password = async (req, res) => {
     try {
-        var { salt, id, accesskey, password, con_pass } = req.body;
+        let { salt, id, accesskey, password, con_pass } = req.body;
         if (password === con_pass) {
             password = password + salt;
             // console.log(password);
             let md5password = md5(password);
             // console.log(md5password);
-            var sql2 = `update users set pass_word = ? where id=? and access_key=?`;
+            let sql2 = `update users set pass_word = ? where id=? and access_key=?`;
             await con.promise().query(sql2, [md5password, id, accesskey]);
             // res.json({ msg: 'your password is successfully created!!' });
             res.send('created password!!');

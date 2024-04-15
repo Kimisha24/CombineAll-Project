@@ -9,13 +9,13 @@ const getjobformajax = function (req, res) {
 }
 
 const postsubmitajax = async (req, res) => {
-    var { first_name, last_name, designation, current_add, perment_add, email, phone_no, city, state, zip_code, gender, relationship_status, birth_date } = req.body;
-    var { education_type, nameboard, passyear, percentage } = req.body
-    var { company_name, comdesg, from_date, to_date } = req.body;
-    var { refname, refno, refrelation } = req.body;
-    var { hindi, r_hindi, w_hindi, s_hindi, english, r_eng, w_eng, s_eng, gujrati, r_guj, w_guj, s_guj } = req.body;
-    var { php, mysql, laravel, oracle, tech_oracle, tech_php, tech_mysql, tech_laravel } = req.body;
-    var { location, department, noticeperiod, expactedctc, currentctc } = req.body;
+    let { first_name, last_name, designation, current_add, perment_add, email, phone_no, city, state, zip_code, gender, relationship_status, birth_date } = req.body;
+    let { education_type, nameboard, passyear, percentage } = req.body
+    let { company_name, comdesg, from_date, to_date } = req.body;
+    let { refname, refno, refrelation } = req.body;
+    let { hindi, r_hindi, w_hindi, s_hindi, english, r_eng, w_eng, s_eng, gujrati, r_guj, w_guj, s_guj } = req.body;
+    let { php, mysql, laravel, oracle, tech_oracle, tech_php, tech_mysql, tech_laravel } = req.body;
+    let { location, department, noticeperiod, expactedctc, currentctc } = req.body;
 
     let sql = `select option_master.o_id,option_master.select_id,option_master.option_key from select_master inner join option_master on select_master.select_id = option_master.select_id;`
     let result = await con.promise().query(sql);
@@ -54,22 +54,22 @@ const postsubmitajax = async (req, res) => {
     });
 
     // insert basic detail..
-    var id = 0;
-    var sqldetail = `insert into basic_detail(first_name,last_name,designation,current_add,perment_add,email,phone_no,city,state,zip_code,gender,relationship_status,birth_date) values (?,?,?,?,?,?,?,?,?,?,?,?,?);`
-    var details = await con.promise().query(sqldetail, [first_name, last_name, designation, current_add, perment_add, email, phone_no, city, state, zip_code, gender, relationship_status, birth_date]);
+    let id = 0;
+    let sqldetail = `insert into basic_detail(first_name,last_name,designation,current_add,perment_add,email,phone_no,city,state,zip_code,gender,relationship_status,birth_date) values (?,?,?,?,?,?,?,?,?,?,?,?,?);`
+    let details = await con.promise().query(sqldetail, [first_name, last_name, designation, current_add, perment_add, email, phone_no, city, state, zip_code, gender, relationship_status, birth_date]);
 
     id = details[0].insertId;
     console.log(id);
     console.log(req.body);
 
     // insert education-master..
-    var sqledu = `insert into education_master(id,education_type,Name_board,Passing_year,Percentage) values (?,?,?,?,?);`
+    let sqledu = `insert into education_master(id,education_type,Name_board,Passing_year,Percentage) values (?,?,?,?,?);`
     for (let i = 0; i < education_type.length; i++) {
         await con.promise().query(sqledu, [id, education_type[i], nameboard[i], passyear[i], percentage[i]]);
     }
 
     // insert work-experience
-    var sqlwork = `insert into work_experience (id,company_name,comdesg,from_date,to_date) values (?,?,?,?,?);`
+    let sqlwork = `insert into work_experience (id,company_name,comdesg,from_date,to_date) values (?,?,?,?,?);`
     for (let i = 0; i < company_name.length; i++) {
         await con.promise().query(sqlwork, [id, company_name[i], comdesg[i], from_date[i], to_date[i]]);
     }
@@ -81,11 +81,11 @@ const postsubmitajax = async (req, res) => {
     }
 
     //  insert prefernces
-    var sqlpref = `insert into preferances (id,location,department,notice_period,expacted_ctc,current_ctc) values (?,?,?,?,?,?);`
+    let sqlpref = `insert into preferances (id,location,department,notice_period,expacted_ctc,current_ctc) values (?,?,?,?,?,?);`
     await con.promise().query(sqlpref, [id, location, department, noticeperiod, expactedctc, currentctc]);
 
     // insert language
-    var sqllang = `insert into language_known(id,lang_known,read_,write_,speak_) values (?,?,?,?,?);`
+    let sqllang = `insert into language_known(id,lang_known,read_,write_,speak_) values (?,?,?,?,?);`
     if (hindi) {
         if (r_hindi == 'read') { r_hindi = 1 } else { r_hindi = 0 }
         if (w_hindi == 'write') { w_hindi = 1 } else { w_hindi = 0 }
@@ -106,7 +106,7 @@ const postsubmitajax = async (req, res) => {
     }
 
     // insert technology
-    var sqltech = `insert into technologies (id,tech_lang,tech_level) values (?,?,?);`;
+    let sqltech = `insert into technologies (id,tech_lang,tech_level) values (?,?,?);`;
     if (php) await con.promise().query(sqltech, [id, php, tech_php]);
     if (mysql) await con.promise().query(sqltech, [id, mysql, tech_mysql]);
     if (laravel) await con.promise().query(sqltech, [id, laravel, tech_laravel]);
@@ -147,7 +147,7 @@ const editformajax = async (req, res) => {
     result5 = up5[0];
     // console.log(result5)
 
-    var php = []; var mysql = []; var laravel = []; var oracle = [];
+    let php = []; let mysql = []; let laravel = []; let oracle = [];
     uptech = `select * from technologies where id = ${id}`;
     let up6 = await con.promise().query(uptech);
     result6 = up6[0];
@@ -164,17 +164,17 @@ const editformajax = async (req, res) => {
 
 const updateajaxform = async (req, res) => {
     const id = req.params.id;
-    var { first_name, last_name, designation, current_add, perment_add, email, phone_no, city, state, zip_code, gender, relationship_status, birth_date } = req.body;
-    var { education_type, nameboard, passyear, percentage, edu_id } = req.body
-    var { company_name, comdesg, from_date, to_date, work_id } = req.body;
-    var { refname, refno, refrelation, ref_id } = req.body;
-    var { location, department, noticeperiod, expactedctc, currentctc } = req.body;
-    var { hindi, r_hindi, w_hindi, s_hindi, english, r_eng, w_eng, s_eng, gujrati, r_guj, w_guj, s_guj, lang_id } = req.body;
-    var { php, mysql, laravel, oracle, tech_oracle, tech_php, tech_mysql, tech_laravel, tech_id } = req.body;
+    let { first_name, last_name, designation, current_add, perment_add, email, phone_no, city, state, zip_code, gender, relationship_status, birth_date } = req.body;
+    let { education_type, nameboard, passyear, percentage, edu_id } = req.body
+    let { company_name, comdesg, from_date, to_date, work_id } = req.body;
+    let { refname, refno, refrelation, ref_id } = req.body;
+    let { location, department, noticeperiod, expactedctc, currentctc } = req.body;
+    let { hindi, r_hindi, w_hindi, s_hindi, english, r_eng, w_eng, s_eng, gujrati, r_guj, w_guj, s_guj, lang_id } = req.body;
+    let { php, mysql, laravel, oracle, tech_oracle, tech_php, tech_mysql, tech_laravel, tech_id } = req.body;
 
     // join query for select-master and option-master...
-    var sql = `select option_master.o_id,option_master.select_id,option_master.option_key from select_master inner join option_master on select_master.select_id = option_master.select_id;`
-    var result = await con.promise().query(sql);
+    let sql = `select option_master.o_id,option_master.select_id,option_master.option_key from select_master inner join option_master on select_master.select_id = option_master.select_id;`
+    let result = await con.promise().query(sql);
     result[0].forEach(data => {
 
         if (data.option_key == 'male' && gender == 'male') gender = data.o_id;
@@ -256,12 +256,12 @@ const updateajaxform = async (req, res) => {
     }
 
     // update technology...
-    var tech_id = req.body.tech_id;
-    var updatetech = `update technologies set tech_lang=?,tech_level=? where id=${id} and tech_id=?;`;
-    if (php) await con.promise().query(updatetech, [php, tech_php, tech_id[0]]);
-    if (mysql) await con.promise().query(updatetech, [mysql, tech_mysql, tech_id[1]]);
-    if (laravel) await con.promise().query(updatetech, [laravel, tech_laravel, tech_id[2]]);
-    if (oracle) await con.promise().query(updatetech, [oracle, tech_oracle, tech_id[3]]);
+    let techid = req.body.tech_id;
+    let updatetech = `update technologies set tech_lang=?,tech_level=? where id=${id} and tech_id=?;`;
+    if (php) await con.promise().query(updatetech, [php, tech_php, techid[0]]);
+    if (mysql) await con.promise().query(updatetech, [mysql, tech_mysql, techid[1]]);
+    if (laravel) await con.promise().query(updatetech, [laravel, tech_laravel, techid[2]]);
+    if (oracle) await con.promise().query(updatetech, [oracle, tech_oracle, techid[3]]);
 
     res.json({ msg: 'data updated' });
 }

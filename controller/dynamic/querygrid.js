@@ -5,7 +5,7 @@ const querygrid = (req, res) => {
         const result = [];
         if (req.query.subquery) {
             const p = req.query.page || 1;
-            var sql = req.query.subquery;
+            let sql = req.query.subquery;
             // console.log(p);
 
             con.query(sql, (err, result) => {
@@ -14,7 +14,7 @@ const querygrid = (req, res) => {
                     const limit = 10;
                     const last = Math.ceil(result.length / limit);
                     const offset = (Number(p) - 1) * limit;
-                    var limitsql = sql + ` limit ${limit} offset ${offset}`;
+                    let limitsql = sql + ` limit ${limit} offset ${offset}`;
                     // console.log(limitsql);
                     const element = Object.keys(result[0]);
                     con.query(limitsql, (err, result) => {

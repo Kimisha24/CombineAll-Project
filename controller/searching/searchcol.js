@@ -41,9 +41,9 @@ const searchcol = (req, res) => {
         // const limit = 500;
         // const offset = (page - 1) * limit;
         const { f_name, course, age, city, operator } = req.body;
-        var sql = `select *, date_format(birth_date,"%d/%m/%Y") as birth_date  from stu_tables where `;
-        // var qry = ` limit ${limit} offset ${offset}`;
-        var condition = [];
+        let sql = `select *, date_format(birth_date,"%d/%m/%Y") as birth_date  from stu_tables where `;
+        // let qry = ` limit ${limit} offset ${offset}`;
+        let condition = [];
         if (f_name) condition.push(`f_name like '${f_name}'`);
         if (course) condition.push(`course like '${course}'`);
         if (age) condition.push(`age like '${age}'`);
