@@ -1,111 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
     <title>fetch API</title>
 
     <style>
-        body {
-            /* align-items: center; */
-            text-align: center;
-            width: 500px;
-            margin: 5% auto;
+      body {
+        /* align-items: center; */
+        text-align: center;
+        width: 500px;
+        margin: 5% auto;
+      }
 
-        }
+      #data {
+        border: 1px solid black;
+        padding: 18px;
+      }
 
-        #data {
-            border: 1px solid black;
-            padding: 18px;
-        }
+      #cmt {
+        /* border: 1px solid black; */
+        margin-top: 30px;
+        padding: 18px;
+      }
 
-        #cmt {
-            /* border: 1px solid black; */
-            margin-top: 30px;
-            padding: 18px;
-        }
-
-        input {
-            background-color: lightblue;
-            font-size: 20px;
-            padding: 10px;
-        }
+      input {
+        background-color: lightblue;
+        font-size: 20px;
+        padding: 10px;
+      }
     </style>
+  </head>
 
-
-</head>
-
-<body>
-
+  <body>
     <div id="data"></div>
     <div id="cmt"></div>
 
     <script>
+      const fetchuser = async () => {
+        var id = window.location.href.split("/").pop();
 
-        const fetchuser = async () => {
-            var id = window.location.href.split('/').pop();
+        // console.log(id);
+        const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
 
-            // console.log(id);
-            const url = `https://jsonplaceholder.typicode.com/posts/${id}`;
+        await fetch(url, {
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
 
-            await fetch(url, {
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
-
-                    var value = document.getElementById('data');
-                    value.innerHTML += ` <b> userid </b>: ${data.userId} <br>
+            var value = document.getElementById("data");
+            value.innerHTML += ` <b> userid </b>: ${data.userId} <br>
                     <b> Id </b>: ${data.id} <br>
                     <b> Title </b>: ${data.title} <br>
                     <b> Body </b>: ${data.body} <br><br>
                     <input type = "button" value="comments" onclick="fetchcomment()">`;
-                })
-        }
+          });
+      };
 
-        fetchuser();
+      fetchuser();
 
+      const fetchcomment = async () => {
+        var id = window.location.href.split("/").pop();
 
-        const fetchcomment = async () => {
-            var id = window.location.href.split('/').pop();
+        console.log(id);
+        const url = `https://jsonplaceholder.typicode.com/posts/${id}/comments`;
 
-            console.log(id);
-            const url = `https://jsonplaceholder.typicode.com/posts/${id}/comments`;
+        await fetch(url, {
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+          .then((response) => response.json())
+          .then((cmt) => {
+            console.log(cmt);
 
-            await fetch(url, {
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-
-                .then((response) => response.json())
-                .then((cmt) => {
-                    console.log(cmt);
-
-                    for (var i = 0; i < 5; i++) {
-
-                        var value = document.getElementById('cmt');
-                        value.innerHTML +=
-                            ` <tr> <b> postid </b>: ${cmt[i].postId} <br>
+            for (var i = 0; i < 5; i++) {
+              var value = document.getElementById("cmt");
+              value.innerHTML += ` <tr> <b> postid </b>: ${cmt[i].postId} <br>
                     <b> Id </b>: ${cmt[i].id} <br>
                     <b> name </b>: ${cmt[i].name} <br>
                     <b> Email </b>: ${cmt[i].email} <br>
                      <b> Body </b>: ${cmt[i].body} <br><br><br> </tr>`;
-
-
-                    }
-
-                })
-        }
-
-
+            }
+          });
+      };
     </script>
-
-</body>
-
+  </body>
 </html>
